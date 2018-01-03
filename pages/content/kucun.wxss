@@ -1,0 +1,109 @@
+.search-view{
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 600rpx;
+  margin-left: 20rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+}
+.search-inputview
+{
+  margin-left: 10rpx;
+}
+.serchbtn{
+  float: right;
+  background-color: #1a96fe;
+  color: white;
+}
+.search-title{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.serchbtn{
+  width: 100rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.kucun-total{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx 0rpx;
+  background-color: white;
+  margin-top: 15rpx;
+}
+.kcell{
+  width: 50%;
+  border-right: 1rpx solid lightgray;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.sl{
+  font-size: 28rpx;
+  color: gray;
+}
+.sln{
+  font-size: 58rpx;
+  color: orange;
+}
+.table-section{
+  width: 100%;
+  background-color: white;
+  margin-top: 15rpx;
+}
+.tabbar-view{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 0rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tab1{
+  background-color: lightgray;
+  color: black;
+  box-sizing: border-box;
+  padding: 27rpx 45rpx;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+}
+.tabselect{
+  background-color: #1a96fe;
+  color: white;
+}
+.notabselect{
+  background-color: lightgray;
+  color: black;
+}
+.biaoge{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.snam{
+  width: 350rpx;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid lightgray;
+  border-right: 1rpx solid lightgray;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20rpx 0rpx;
+}
+.nst{
+  border-top:  1rpx solid lightgray;
+  font-weight: 600;
+}

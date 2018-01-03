@@ -1,0 +1,15 @@
+<!--pages/content/login.wxml-->
+<view class='container'>
+  <view class='user-banner b1'>
+    <view class='user'>用户名</view>
+    <input class='username' placeholder='请输入手机号'></input>
+   </view>
+
+   <view class='user-banner'>
+    <view class='user'>密码</view>
+    <input class='username' placeholder='请输入6位密码'></input>
+   </view>
+  <view class='loninbtn' bindtap='loginAction'>登  陆</view>
+  
+ <view class='fotpaw'>忘记密码？</view>
+</view>

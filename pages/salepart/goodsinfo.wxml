@@ -1,0 +1,37 @@
+<!--pages/salepart/goodsinfo.wxml-->
+<view class='container'>
+  <view class='search_head'>
+    <input class='seinp' placeholder=' 🔍 搜索商品'></input>
+  </view>
+
+  <view class='content_view'>
+
+    <scroll-view class="categroy-left" scroll-with-animation="true" scroll-y="true">
+      <view wx:for="{{catagary}}" wx:key="cat_id" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchTab" class="cate-list {{curIndex === index?'on':''}}">{{item}}</view>
+    </scroll-view>
+
+
+    <scroll-view class="categroy-right" scroll-into-view="{{toView}}" scroll-with-animation="true" scroll-y="true" bindscrolltolower="searchScrollLower">
+      <block wx:for="{{detail}}" wx:for-index wx:key="cat_id">
+        <view id="{{item.id}}" class="cate-box">
+          <!-- <navigator url="../goods/goodsDetail?groupNum={{item.busi_no}}&productnum={{item.product_no}}" class="cate-box"> -->
+            <view class="cate-banner">
+              <image src="{{item.pic_little}}"></image>
+            </view>
+            <view class="cate-title">
+              <text class='pname'>{{item.product_name}}</text>
+              <text class='moey'>￥{{item.market_price/100}}</text>
+              <view class='trs'>
+              <text class='rest'>剩余2个</text>
+              <image class='tupian' src='/pages/images/shopping.png'></image>
+              </view>
+            </view>
+          <!-- </navigator> -->
+        </view>
+      </block>
+      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>
+
+  </view>
+</view>

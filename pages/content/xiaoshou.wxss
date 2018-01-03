@@ -1,0 +1,179 @@
+/* pages/content/xiaoshou.wxss */
+.headview{
+  width: 100%;
+  height: auto;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 10rpx 0rpx 0rpx 0rpx;
+  align-items: center;
+  justify-content: space-around;
+}
+.bock{
+  width: 250rpx;
+  height: 80rpx;
+  border-right: 1rpx solid whitesmoke;
+  border-bottom: 1rpx solid whitesmoke;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 80rpx;
+}
+.selct{
+  border-bottom: 1rpx solid #1a96fe;
+  color: #1a96fe;
+}
+.date-view {
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10rpx 0rpx;
+  background-color: white;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.jiantou {
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 1rpx solid #7f7f7f;
+  border-right: 1rpx solid #7f7f7f;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.leftj {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.zhutu{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+.canvas{
+  margin-top: 50rpx;
+  height: 350rpx;
+  width: 60%;
+  background-color: white;
+}
+.intro{
+  margin-top: 20rpx;
+  width: 40%;
+  background-color: white;
+  display: block;
+}
+.shname{
+  font-size: 26rpx;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+.shopsale{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+}
+.intrt{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.tit{
+  font-size: 24rpx;
+  color: gray;
+  margin-left: 5rpx;
+}
+.fk{
+  width: 20rpx;
+  height: 20rpx;
+  background-color: peru;
+  margin-left: 30rpx;
+}
+.pst{
+  margin-left: 55rpx;
+}
+.fk2{
+  background-color: #7CB5EC;
+}
+.selcview{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+.pat1{
+  width: 50%;
+  height: 80rpx;
+  background-color: grey;
+  line-height: 80rpx;
+  color: white;
+  font-size: 32rpx;
+}
+.othe{
+  background-color: #1a96fe;
+}
+.bintu{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+.canvas2{
+    min-height: 350rpx;
+    float: right;
+    margin-left: -50rpx;
+}
+.bintuleft{
+  margin-top: 20rpx;
+  width: 400rpx;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rpx;
+}
+.bintuk{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+}
+.xiaokuai{
+  width: 20rpx;
+  height: 20rpx;
+  background-color: rebeccapurple;
+}
+.mend{
+  font-size: 24rpx;
+  color: gray;
+}
+.biaot{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+}
+.biaoy{
+  width: 250rpx;
+  background-color: gray;
+  text-align: center;
+  color: black;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  border-right: 1rpx solid white;
+}
+.cbat{
+  background-color: white;
+  border-right: 1rpx solid lightgray;
+  color: black;
+  border-bottom: 1rpx solid lightgray;
+}

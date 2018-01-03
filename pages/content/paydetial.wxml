@@ -1,0 +1,51 @@
+<!--pages/content/paydetial.wxml-->
+<view class='container'>
+  <view class='date-view'>
+    <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
+    <view class="date-info" wx:if="{{selctype==0}}">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
+      </picker>
+    </view>
+    <view class="date-info" wx:if="{{selctype==1}}">
+      <text>{{week}}</text>
+    </view>
+
+    <view class="date-info" wx:if="{{selctype==2}}">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
+      </picker>
+    </view>
+    <view class='jiantou' bindtap="handleCalendar" data-handle="next"></view>
+  </view>
+
+  <canvas canvas-id="columnCanvas" class="canvas"></canvas>
+  <view class='date-type'>
+    <block wx:for="{{['按日','按周','按月']}}" wx:for-item='item' wx:for-index='idx'>
+      <view class="data-tyview {{idx==selctype?'date-sview':''}}" bindtap='selctType' data-info='{{idx}}'>{{item}}</view>
+    </block>
+  </view>
+
+  <view class='batview'>
+    <view class='total-view'>总收款</view>
+    <view class='shoucontent'>
+      <block wx:for="{{[110000,2,322,12,3]}}">
+        <view class='zfb'>
+          <view class='sb-view s1' style="background-color:{{col}}"></view>
+          <text>微信 {{item}}</text>
+        </view>
+      </block>
+    </view>
+    <view class='baitiao'></view>
+  </view>
+
+  <view class='thd'>
+    <view class='total-view '>会员充值统计</view>
+    <view class='zfb'>
+      <view class='sb-view s5'></view>
+      <text>充值金额 ￥200</text>
+    </view>
+    <view class='ztx'>1</view>
+  </view>
+
+</view>

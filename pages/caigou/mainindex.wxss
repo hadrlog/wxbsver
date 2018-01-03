@@ -1,0 +1,147 @@
+/**index.wxss**/
+.title-view{
+  width: 100%;
+  display: flex;
+  flex-direction: flex;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  align-items: center;
+}
+.user{
+  font-size:28rpx;
+  margin-top: 10rpx;
+  color: gray;
+
+}
+.itemshow{
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.titl{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 600rpx;
+}
+.shopicon{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 0rpx;
+}
+.uname{
+  margin-left:220rpx;
+margin-top:-40rpx;
+
+}
+.shopname{
+  font-size:30rpx;
+  margin-top: 10rpx;
+  flex-grow: 1;
+}
+.logout{
+  font-size:24rpx;
+color:#1a96fe;
+border-radius:8rpx;
+float: right;
+box-sizing:border-box;
+padding:5rpx 15rpx;
+}
+.timelimit{
+  margin-left: 10rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #1a96fe;
+}
+.timelimit::before{
+  content: '专业版剩余';
+  color: gray;
+}
+.timelimit::after{
+  content: '天';
+  color: gray;
+}
+.sec-view{
+  margin-top: 12rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 30rpx 0rpx;
+}
+.bleft{
+  width: 375rpx;
+  text-align: center;
+  color: gray;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  border-right: 1px solid lightgray;
+}
+.bright{
+  float: right;
+  width: 375rpx;
+  text-align: center;
+  color: gray;
+  height: 150rpx;
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.blview{
+ width: 100%;
+ height: 70rpx;
+ text-align: center;
+ box-sizing: border-box;
+ padding: 10rpx 0rpx;
+ font-size: 26rpx;
+ line-height: 50rpx;
+
+}
+
+.thd-view{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contcell{
+  width: 373.9rpx;
+  height: 250rpx;
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item-view{
+  width: 70rpx;
+  height: 80rpx;
+}
+.skgc{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  font-weight: 300;
+}
+.sz{
+  font-size: 28rpx;
+  color: gray;
+  margin-top: 10rpx;
+}
+.mony{
+  color:black;
+  font-size: 56rpx;
+  margin-left: -40rpx;
+}
+.tt{
+    font-weight: 300;
+    font-size: 28rpx;
+}
+.mater{
+  color: #fea356;
+}

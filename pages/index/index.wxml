@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='title-view'>
+    <image src='/pages/images/keliul.png' class='shopicon'></image>
+    <view class='itemshow'>
+      <view class='titl'>
+        <text class='shopname'>商户名称</text>
+        <view class='logout' bindtap='jumplogin'>退出</view>
+      </view>
+      <text class='user'>老板:****2168</text>
+    </view>
+
+  </view>
+  <view class='sec-view'>
+    <view class='bleft'>
+      <text class='tt'>今日应收（元）</text>
+      <text class='mony'>￥0.00</text>
+    </view>
+    <view class='bright'>
+      <text class='tt'>今日实收（元）</text>
+      <text class='mony mater'>￥0.00</text>
+    </view>
+  </view>
+  <view class='blview'>参考毛利（元）0.00 参考毛利率（%）0</view>
+
+  <view class='thd-view'>
+    <block wx:for="{{contentImage}}" wx:for-index='idx' wx:for-item='item'>
+      <view class='contcell' bindtap='nexshow' data-idx="{{idx}}">
+        <image src='{{item.image}}' class='item-view' mode='aspectFit'></image>
+        <view class='skgc'>{{item.tittle}}</view>
+        <view class='sz'>0.00</view>
+      </view>
+    </block>
+  </view>
+</view>

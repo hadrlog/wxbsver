@@ -1,0 +1,213 @@
+.tab-view {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.wt-view {
+  width: 25%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid lightgray;
+  color: gray;
+  font-size: 28rpx;
+}
+
+.wcan {
+  color: red;
+  border-bottom: 1rpx solid red;
+}
+
+.date-view {
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10rpx 0rpx;
+  background-color: white;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.jiantou {
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 1rpx solid #7f7f7f;
+  border-right: 1rpx solid #7f7f7f;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.leftj {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+.canvas {
+  margin-top: 10rpx;
+  background-color: white;
+  width: 100%;
+  min-height:350rpx;
+}
+
+.date-type {
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 0rpx 20rpx;
+  justify-content: space-around;
+}
+
+.data-tyview {
+  box-sizing: border-box;
+  font-size: 26rpx;
+  background-color: #eeeff0;
+  text-align: center;
+  color: black;
+  width: 180rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+}
+
+.batview {
+  background-color: white;
+  margin-top: 10rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.total-view {
+  width: 100%;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 32rpx;
+  color: black;
+  border-bottom: 1rpx solid lightgray;
+}
+
+
+
+.zx {
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.zfb text {
+  font-size: 32rpx;
+  margin-left: 10rpx;
+}
+
+.sb-view {
+  width: 22rpx;
+  height: 22rpx;
+  background-color: #1a96fe;
+  margin-left: 80rpx;
+  /* margin-top: 10rpx; */
+}
+
+.zfb {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 49%;
+  margin-top: 20rpx;
+  /* background-color: gray; */
+}
+.shoucontent{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+    /* align-self: baseline; */
+   justify-content: space-between; 
+   text-align: center;
+   align-items: baseline;
+}
+.zxn {
+  margin-top: 50rpx;
+}
+
+.baitiao {
+  width: 100%;
+  height: 30rpx;
+}
+
+.thd {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 10rpx;
+  height: 350rpx;
+}
+
+.ztx {
+  font-size: 32rpx;
+  color: #1a96fe;
+}
+
+.ztx::before {
+  content: '充值次数 ';
+  color: black;
+}
+
+.ztx::after {
+  content: '次';
+  color: black;
+}
+
+.date-sview {
+  background-color: #1a96fe;
+  color: white;
+}
+
+.s2 {
+  background-color: #8ad952;
+}
+
+.s3 {
+  background-color: #fd7072;
+}
+
+.s4 {
+  background-color: #fd8438;
+}
+
+.s5 {
+  background-color: #fdb92c;
+}
+
+.huiy {
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+  font-size: 37rpx;
+  color: black;
+  font-weight: 300;
+}
+
+.hzfb {
+  margin-top: 20rpx;
+  margin-left: 96rpx;
+}
+
+.ztx {
+  margin-right: 30rpx;
+  margin-left: 470rpx;
+  margin-top: -50rpx;
+}

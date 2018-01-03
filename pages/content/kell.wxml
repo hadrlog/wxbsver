@@ -1,0 +1,59 @@
+<!--pages/content/kell.wxml-->
+<view class='container'>
+ <view class='date-view'>
+    <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
+    <view class="date-info" wx:if="{{selctype==0}}">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
+      </picker>
+    </view>
+    <view class="date-info" wx:if="{{selctype==1}}">
+      <text>{{week}}</text>
+    </view>
+
+    <view class="date-info" wx:if="{{selctype==2}}">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
+      </picker>
+    </view>
+    <view class='jiantou' bindtap="handleCalendar" data-handle="next"></view>
+  </view>
+
+  <canvas canvas-id="areaCanvas" class="canvas"></canvas>
+
+  <view class='date-type'>
+    <block wx:for="{{['按日','按周','按月']}}" wx:for-item='item' wx:for-index='idx'>
+      <view class="data-tyview {{idx==selctype?'date-sview':''}}" bindtap='selctType' data-info='{{idx}}'>{{item}}</view>
+    </block>
+  </view>
+  <view class='addvip'>
+    <view class='bock'></view>
+    <view class='adduser'>今日新增会员</view>
+    <view class='usernum'>5</view>
+  </view>
+
+  <view class='zhanbi'>
+    <view class='addvip'>
+      <view class='bock'></view>
+      <view class='adduser'>营业占比</view>
+    </view>
+    <view class='ring-view'>
+      <canvas canvas-id="ringCanvas" class="canvas2"></canvas>
+
+      <view class='righvew'>
+        <view class='intr-view'>
+          <view class='book'></view>
+          <view class='intro'>83.29%</view>
+        </view>
+
+        <view class='intr-view'>
+          <view class='book bk2'></view>
+          <view class='intro intr2'>16.71%</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

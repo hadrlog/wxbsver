@@ -1,0 +1,108 @@
+<view class='containt'>
+  <view class='headview'>
+    <block wx:for="{{['日','周','月']}}" wx:for-index='idx' wx:for-item='item'>
+      <view class="bock {{idx==selctype?'selct':''}}" bindtap='selctType' data-info='{{idx}}'>{{item}}</view>
+
+    </block>
+  </view>
+
+  <view class='date-view'>
+    <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
+    <view class="date-info" wx:if="{{selctype==0}}">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
+      </picker>
+    </view>
+    <view class="date-info" wx:if="{{selctype==1}}">
+      <text>{{week}}</text>
+    </view>
+
+    <view class="date-info" wx:if="{{selctype==2}}">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
+      </picker>
+    </view>
+
+    <view class='jiantou' bindtap="handleCalendar" data-handle="next"></view>
+  </view>
+
+  <view class='paihan-view'>
+    <view class='pshot'>
+      <text class='ptop'>海飞丝</text>
+      <text class='tps'>均价￥58.00</text>
+      <text class='tps'>数量：13</text>
+      <text class='tps'>金额：75000.00</text>
+    </view>
+    <view class='pshot lef'>
+      <text class='ptop'>香飘飘奶茶</text>
+      <text class='tps'>均价￥58.00</text>
+      <text class='tps'>数量：13</text>
+      <text class='tps'>金额：75000.00</text>
+    </view>
+    <view class='pshot rig'>
+      <text class='ptop'>盐</text>
+      <text class='tps'>均价￥58.00</text>
+      <text class='tps'>数量：13</text>
+      <text class='tps'>金额：75000.00</text>
+    </view>
+    <image src='/pages/images/paihan.png' class='paihan' mode='scaleToFill'></image>
+
+  </view>
+
+  <view class='hesv'>
+    <block wx:for="{{['商品类别','商品','畅销']}}" wx:for-index='idx' wx:for-item='item'>
+      <view class="hstype {{idx==producty?'hsslet':''}}" bindtap='procuctSelct' data-prod='{{idx}}'>{{item}}</view>
+    </block>
+  </view>
+
+  <view class='sive' wx:if="{{producty!=2}}">
+    <view class='caven'>
+      <canvas canvas-id="ringCanvas" class="canvas2"></canvas>
+    </view>
+
+    <view class='bintro'>
+      <block wx:for="{{dateseris}}">
+        <view class='btx'>
+          <view class='itemb bposition'></view>
+          <view class='item1'>{{item.name}}:30%</view>
+        </view>
+      </block>
+    </view>
+    <view class='whiline'></view>
+
+    <view class='third'>
+      <block wx:for="{{['商品类别','销售金额','金额占比']}}">
+        <view class='heatitle'>{{item}}</view>
+      </block>
+    </view>
+    <block wx:for="{{dateseris}}" wx:for-index='idx' wx:for-item='item'>
+      <view class='third'>
+        <view class='busname'>{{item.name}}</view>
+        <view class='busname'>300000</view>
+        <view class='busname'>90%</view>
+      </view>
+    </block>
+  </view>
+
+  <view class='cbton' wx:if="{{producty ==2}}">
+    <view class='third'>
+      <block wx:for="{{['商品','单价','销量','金额']}}">
+        <view class='heatitle changhd'>{{item}}</view>
+      </block>
+    </view>
+    <block wx:for="{{[1,2,3,4,5]}}">
+    <view class='cbard'>
+      <view class='cb1'>香飘飘</view>
+      <view class='cb1'>￥100</view>
+      <view class='cb1'>123</view>
+      <view class='cb1'>￥1233444</view>
+    </view>
+    </block>
+
+  </view>
+
+
+
+
+
+</view>

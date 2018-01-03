@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='title-view'>
+    <image src='/pages/images/keliul.png' class='shopicon'></image>
+    <view class='itemshow'>
+      <view class='titl'>
+        <text class='shopname'>花贲市场</text>
+        <view class='logout' bindtap='jumplogin'>退出</view>
+      </view>
+      <text class='user'>采购员:****2168</text>
+    </view>
+
+  </view>
+  <view class='sec-view'>
+    <view class='bleft'>
+      <text class='tt'>已下单（笔）</text>
+      <text class='mony'>10</text>
+    </view>
+    <view class='bright'>
+      <text class='tt'>待处理（笔）</text>
+      <text class='mony mater'>5</text>
+    </view>
+  </view>
+  <view class='blview'>参考完成进度（%）100</view>
+
+  <view class='thd-view'>
+    <block wx:for="{{contentImage}}" wx:for-index='idx' wx:for-item='item'>
+      <view class='contcell' bindtap='nexshow' data-idx="{{idx}}">
+        <image src='{{item.image}}' class='item-view' mode='aspectFit'></image>
+        <view class='skgc'>{{item.tittle}}</view>
+        <view class='sz'>0.00</view>
+      </view>
+    </block>
+  </view>
+</view>

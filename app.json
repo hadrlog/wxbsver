@@ -1,0 +1,24 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/content/paydetial",
+    "pages/content/datesale",
+    "pages/content/kell",
+    "pages/content/kucun",
+    "pages/content/calender",
+    "pages/content/paihan",
+    "pages/content/login",
+    "pages/content/xiaoshou",
+    "pages/salepart/mainpage",
+    "pages/caigou/mainindex",
+    "pages/storer/main",
+    "pages/salepart/goodsinfo",
+    "pages/salepart/daike"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1a96fe",
+    "navigationBarTitleText": "客满座",
+    "navigationBarTextStyle":"white"
+  }
+}

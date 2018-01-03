@@ -1,0 +1,137 @@
+.date-view{
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10rpx 0rpx;
+  background-color: white;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.jiantou {
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 1rpx solid #7f7f7f;
+  border-right: 1rpx solid #7f7f7f;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.leftj{
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.canvas{
+  width: 100%;
+  height: 370rpx;
+  background-color: white;
+  margin-top: 10rpx;
+}
+.date-type{
+  width: 100%;
+  height: 150rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  justify-content: space-around;
+}
+.data-tyview{
+  box-sizing: border-box;
+  font-size: 26rpx;
+  background-color: #EEEFF0;
+  text-align: center;
+  color: black;
+  width: 180rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+}
+.date-sview{
+  background-color: #1a96fe;
+  color: white;
+}
+.addvip{
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx;
+}
+.bock{
+  width: 20rpx;
+  height: 60rpx;
+  background-color: #1a96fe;
+  margin-left: 10rpx;
+}
+.adduser{
+  margin-left: 14rpx;
+  flex-grow: 1;
+  font-size: 38rpx;
+}
+.usernum{
+    color: gold;
+}
+.usernum::after{
+  color: black;
+  font-size: 30rpx;
+  content: '人';
+  margin-left: 10rpx;
+}
+.zhanbi{
+  width: 100%;
+  
+}
+.ring-view{
+  width: 100%;
+  height: 400rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+.canvas2{
+  height: 400rpx;
+  margin-left: -150rpx;
+}
+.righvew{
+  top: 50rpx;
+  right: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.intr-view{
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 30rpx 10rpx;
+  align-items: center;
+}
+.book{
+  width: 20rpx;
+  height: 30rpx;
+  background-color: #F7A35C;
+}
+.bk2{
+  background-color: 	
+#7CB5E8;
+}
+.intro::before{
+  content: '会员';
+  margin-left: 10rpx;
+  margin-right: 15rpx;
+}
+.intr2::before{
+  content: '散客';
+}

@@ -1,0 +1,53 @@
+<!--pages/content/datesale.wxml-->
+<view class='container'>
+
+  <view class='date-view'>
+    <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
+    <view class="date-info" wx:if="{{selctype==0}}">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
+      </picker>
+    </view>
+    <view class="date-info" wx:if="{{selctype==1}}">
+      <text>{{week}}</text>
+    </view>
+
+    <view class="date-info" wx:if="{{selctype==2}}">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+        <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
+      </picker>
+    </view>
+    <view class='jiantou' bindtap="handleCalendar" data-handle="next"></view>
+  </view>
+
+  <canvas canvas-id="lineCanvas" class="canvas"></canvas>
+
+  <view class='date-type'>
+    <block wx:for="{{['按日','按周','按月']}}" wx:for-item='item' wx:for-index='idx'>
+      <view class="data-tyview {{idx==selctype?'date-sview':''}}" bindtap='selctType' data-info='{{idx}}'>{{item}}</view>
+    </block>
+  </view>
+  <view class='sed'>
+    <view class='sed-part1 smt'>
+      <view class='tp-view'>最高值（元）</view>
+      <view class='delivery-view'>1200.00</view>
+    </view>
+
+    <view class='sed-part1'>
+      <view class='tp-view'>平均值（元）</view>
+      <view class='delivery-view'>100.00</view>
+    </view>
+  </view>
+
+  <view class='thd'>
+    <block wx:for="{{datacacary}}" wx:for-index='idx' wx:for-item='item'>
+      <view class="squrt {{idx>3?'nonebline':''}}">
+        <view class='lemu'>{{item.title}}</view>
+        <view class='moy-view'>￥{{item.money}}</view>
+      </view>
+
+    </block>
+  </view>
+
+
+</view>
