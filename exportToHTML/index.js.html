@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>index.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); font-style: italic; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,0,128); font-weight: bold; }
+.s3 { color: rgb(0,128,0); font-weight: bold; }
+.s4 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+index.js</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">// pages/content/login.js</span><span class="s1"> 
+</span><span class="s2">var </span><span class="s1">api = require(</span><span class="s3">'../../utils/api.js'</span><span class="s1">); 
+</span><span class="s2">var </span><span class="s1">mdk = require(</span><span class="s3">'../../utils/md55.js'</span><span class="s1">); 
+</span><span class="s2">const </span><span class="s1">app = getApp() 
+Page({ 
+ 
+  </span><span class="s0">/** 
+   * 页面的初始数据 
+   */</span><span class="s1"> 
+  data: { 
+    array: [], 
+    index: </span><span class="s4">0</span><span class="s1">, 
+    telephonenum: </span><span class="s3">''</span><span class="s1">, 
+    password: </span><span class="s3">''</span><span class="s1">, 
+    shopsArr: [], 
+  }, 
+ 
+  </span><span class="s0">/** 
+   * 生命周期函数--监听页面加载 
+   */</span><span class="s1"> 
+  onLoad: </span><span class="s2">function </span><span class="s1">(options) { 
+ 
+  }, 
+  </span><span class="s0">//登陆</span><span class="s1"> 
+  loginAction: </span><span class="s2">function </span><span class="s1">() { 
+    </span><span class="s2">const </span><span class="s1">shops = </span><span class="s2">this</span><span class="s1">.data.shopsArr; 
+    </span><span class="s2">const </span><span class="s1">indx = </span><span class="s2">this</span><span class="s1">.data.index; 
+    </span><span class="s2">const </span><span class="s1">tel = </span><span class="s2">this</span><span class="s1">.data.telephonenum; 
+    </span><span class="s2">const </span><span class="s1">pwd = </span><span class="s2">this</span><span class="s1">.data.password; 
+    console.log(</span><span class="s3">'密码是：'</span><span class="s1">+pwd); 
+    </span><span class="s2">var </span><span class="s1">password = mdk.hexMD5(pwd).toUpperCase(); 
+    </span><span class="s2">var </span><span class="s1">shopnum = </span><span class="s3">''</span><span class="s1">; 
+    </span><span class="s2">if </span><span class="s1">(shops.length &gt; </span><span class="s4">0</span><span class="s1">) { 
+      shopnum = shops[indx].shop_no; 
+    } 
+    api.Cpic_fetchPost(api.LOGIN, { </span><span class="s3">&quot;shop_no&quot;</span><span class="s1">: shopnum, </span><span class="s3">&quot;phone_num&quot;</span><span class="s1">: tel, </span><span class="s3">&quot;passwd&quot;</span><span class="s1">: password }, (err, res) =&gt; { 
+      console.log(</span><span class="s3">&quot;err:&quot; </span><span class="s1">+ err + </span><span class="s3">&quot;DIC:&quot; </span><span class="s1">+ res.ReturnMsg + </span><span class="s3">'GROUP：' </span><span class="s1">+ res.data_user); 
+      </span><span class="s2">if</span><span class="s1">(err !=</span><span class="s3">'00'</span><span class="s1">){ 
+        wx.showModal({ 
+          title: </span><span class="s3">'登陆失败'</span><span class="s1">, 
+          content: res.ReturnMsg, 
+          success: </span><span class="s2">function </span><span class="s1">(res) { 
+            </span><span class="s2">if </span><span class="s1">(res.confirm) { 
+              console.log(</span><span class="s3">'用户点击确定'</span><span class="s1">) 
+            } </span><span class="s2">else if </span><span class="s1">(res.cancel) { 
+              console.log(</span><span class="s3">'用户点击取消'</span><span class="s1">) 
+            } 
+          } 
+        }) 
+        </span><span class="s2">return</span><span class="s1">; 
+      } 
+      </span><span class="s2">const </span><span class="s1">userdata = res.data_user; 
+      </span><span class="s2">if </span><span class="s1">(userdata == </span><span class="s2">null</span><span class="s1">) { 
+        console.log(</span><span class="s3">'data is null'</span><span class="s1">); 
+      } </span><span class="s2">else </span><span class="s1">{ 
+        </span><span class="s2">const </span><span class="s1">shopnum = userdata.shop_no; 
+        app.globalData.shoopnum = shopnum; 
+        app.globalData.shopName = userdata.shop_name; 
+        app.globalData.merchno = userdata.merchant_no; 
+        </span><span class="s2">if </span><span class="s1">(userdata.certfy_flag == </span><span class="s3">'1'</span><span class="s1">) {  </span><span class="s0">//是老板</span><span class="s1"> 
+          wx.navigateTo({ 
+            url: </span><span class="s3">'/pages/content/tindex?telphone='</span><span class="s1">+tel, 
+          }) 
+        } </span><span class="s2">else </span><span class="s1">{ 
+          </span><span class="s2">if </span><span class="s1">(userdata.user_position) {   </span><span class="s0">//岗位权限 </span><span class="s1"> 
+          } 
+        } 
+      } 
+    }) 
+ 
+ 
+  }, 
+  bindPickerChange: </span><span class="s2">function </span><span class="s1">(e) { 
+    </span><span class="s2">const </span><span class="s1">value = e.detail.value; 
+    </span><span class="s2">this</span><span class="s1">.setData({ 
+      index: value, 
+    }) 
+  }, 
+  </span><span class="s0">//输入密码</span><span class="s1"> 
+  bindpasswordInput: </span><span class="s2">function </span><span class="s1">(e) { 
+    </span><span class="s2">const </span><span class="s1">vale= e.detail.value; 
+    </span><span class="s2">this</span><span class="s1">.setData({ 
+      password: vale, 
+    }) 
+  }, 
+  </span><span class="s0">//输入手机号</span><span class="s1"> 
+  bindNameInput: </span><span class="s2">function </span><span class="s1">(e) { 
+    </span><span class="s2">const </span><span class="s1">inputValue = e.detail.value; 
+    </span><span class="s2">if </span><span class="s1">(inputValue == </span><span class="s3">''</span><span class="s1">||inputValue.length&lt;</span><span class="s4">11</span><span class="s1">) { 
+      </span><span class="s2">return</span><span class="s1">; 
+    } 
+    api.Cpic_fetchPost(api.SHOPCHECK, { </span><span class="s3">&quot;phone_num&quot;</span><span class="s1">: inputValue }, (err, res) =&gt; { 
+      console.log(</span><span class="s3">&quot;err:&quot; </span><span class="s1">+ err + </span><span class="s3">&quot;DIC:&quot; </span><span class="s1">+ res.ReturnMsg + </span><span class="s3">'GROUP：' </span><span class="s1">+ res.data); 
+      </span><span class="s2">if </span><span class="s1">(res.data == </span><span class="s2">null</span><span class="s1">) { 
+        console.log(</span><span class="s3">'data is null'</span><span class="s1">); 
+      } </span><span class="s2">else </span><span class="s1">{ 
+        </span><span class="s2">var </span><span class="s1">shops = []; 
+        </span><span class="s2">const </span><span class="s1">reqarr = res.data; 
+        </span><span class="s2">for </span><span class="s1">(</span><span class="s2">var </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; reqarr.length; i++) { 
+          shops.push(reqarr[i].shop_name) 
+        } 
+        </span><span class="s2">this</span><span class="s1">.setData({ 
+          array: shops, 
+          telephonenum: inputValue, 
+          shopsArr: reqarr 
+        }) 
+      } 
+    }) 
+  }, 
+ 
+  </span><span class="s0">//忘记密码</span><span class="s1"> 
+  forgetPwd: </span><span class="s2">function </span><span class="s1">() { 
+    wx.navigateTo({ 
+      url: </span><span class="s3">'../content/fogetpwd'</span><span class="s1">, 
+    }) 
+  }, 
+  </span><span class="s0">/** 
+   * 生命周期函数--监听页面初次渲染完成 
+   */</span><span class="s1"> 
+  onReady: </span><span class="s2">function </span><span class="s1">() { 
+ 
+  }, 
+ 
+  </span><span class="s0">/** 
+   * 生命周期函数--监听页面显示 
+   */</span><span class="s1"> 
+  onShow: </span><span class="s2">function </span><span class="s1">() { 
+ 
+  }, 
+ 
+  </span><span class="s0">/** 
+   * 生命周期函数--监听页面隐藏 
+   */</span><span class="s1"> 
+  onHide: </span><span class="s2">function </span><span class="s1">() { 
+ 
+  }, 
+ 
+  </span><span class="s0">/** 
+   * 生命周期函数--监听页面卸载 
+   */</span><span class="s1"> 
+  onUnload: </span><span class="s2">function </span><span class="s1">() { 
+ 
+  }, 
+ 
+  </span><span class="s0">/** 
+   * 页面相关事件处理函数--监听用户下拉动作 
+   */</span><span class="s1"> 
+  onPullDownRefresh: </span><span class="s2">function </span><span class="s1">() { 
+ 
+  }, 
+ 
+  </span><span class="s0">/** 
+   * 页面上拉触底事件的处理函数 
+   */</span><span class="s1"> 
+  onReachBottom: </span><span class="s2">function </span><span class="s1">() { 
+ 
+  }, 
+ 
+  </span><span class="s0">/** 
+   * 用户点击右上角分享 
+   */</span><span class="s1"> 
+  onShareAppMessage: </span><span class="s2">function </span><span class="s1">() { 
+ 
+  } 
+})</span></pre>
+</body>
+</html>

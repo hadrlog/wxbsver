@@ -1,0 +1,92 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wx857cde03de16ba15",
+	"projectname": "%E6%98%93%E5%AE%A2%E6%9D%A5Bate",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "登陆模式",
+					"pathName": "pages/content/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "主页",
+					"pathName": "pages/content/tindex",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "库存",
+					"pathName": "pages/shopStore/main",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "出库",
+					"pathName": "pages/shopStore/bouter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "库存盘点",
+					"pathName": "pages/shopStore/checkStore",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "单据审核",
+					"pathName": "pages/shopStore/auditList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "单据详情",
+					"pathName": "pages/shopStore/listDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加商品",
+					"pathName": "pages/shopStore/goodsEdit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加分类",
+					"pathName": "pages/storer/goodcategaryadd",
+					"query": ""
+				}
+			]
+		}
+	}
+}

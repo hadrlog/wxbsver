@@ -109,7 +109,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .intr-view{
   display: flex;
@@ -121,11 +121,10 @@
 .book{
   width: 20rpx;
   height: 30rpx;
-  background-color: #F7A35C;
+  background-color: #7cb5ec;
 }
 .bk2{
-  background-color: 	
-#7CB5E8;
+  background-color: #f7a35c;
 }
 .intro::before{
   content: '会员';

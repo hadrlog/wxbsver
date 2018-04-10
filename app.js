@@ -34,6 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    shoopnum:null,
+    shopName:null,
+    merchno:null,
   }
 })

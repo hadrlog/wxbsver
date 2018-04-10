@@ -1,0 +1,28 @@
+<view class="container">
+  <view class='cell'>
+    <view class='user'>用户名</view>
+    <input class='username' placeholder='请输入手机号' type="number" maxlength="11" bindblur="bindNameInput"></input>
+ <text class="indetify_view" bindtap="yanzhenm" wx:if="{{showverification}}">获取验证码</text>
+    <text class="indetify_view" wx:if="{{showt}}">{{showtime}}</text>
+  </view>
+
+  <view class='cell'>
+    <view class='user'>验证码</view>
+    <input class='username' placeholder='请输入验证码' type="number" maxlength="11" bindblur="bindValidInput"></input>
+  </view>
+
+  <view class='cell'>
+    <view class='user'>门店(必选)</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        {{array[index]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='cell mgb'>
+    <view class='user'>新密码</view>
+    <input class='username' placeholder='请输入新密码' type="number" maxlength="11" bindblur="bindPasswordInput"></input>
+  </view>
+  <view class='tijiao' bindtap='submitTs'>提交</view>
+</view>

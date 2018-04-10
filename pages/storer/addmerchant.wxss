@@ -1,0 +1,59 @@
+/* pages/storer/addmerchant.wxss */
+.cell{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 88rpx;
+  border-bottom: 1rpx solid lightgray;
+}
+.cell text::before{
+  content: '*';
+  color: red;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  margin-right: 5rpx;
+}
+.cell text{
+  font-size: 28rpx;
+  color: DimGray;
+}
+.cell input{
+  font-size: 28rpx;
+}
+.bcell{
+    width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 88rpx;
+  border-bottom: 1rpx solid lightgray;
+
+}
+.bcell text{
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.beizhu{
+  background-color: whitesmoke;
+  width: 600rpx;
+  font-size: 28rpx;
+}
+.masur{
+  width: 710rpx;
+  background-color: #1a96fe;
+  height: 80rpx;
+  margin-left: 20rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+  font-size: 32rpx;
+  margin-top: 60rpx;
+  border-radius: 18rpx;
+}
+.goneng{
+  background-color: #FF4500;
+  margin-top: 30rpx;
+}

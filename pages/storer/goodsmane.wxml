@@ -1,0 +1,34 @@
+<!--pages/salepart/goodsinfo.wxml-->
+<view class='container'>
+  <view class='search_head'>
+    <input class='seinp' placeholder=' 🔍 搜索商品'></input>
+    <image src='/pages/images/scan.png' class='scan-view' bindtap='scancode'></image>
+  </view>
+
+  <view class='content_view'>
+
+    <scroll-view class="categroy-left" scroll-with-animation="true" scroll-y="true">
+      <view wx:for="{{catagary}}" wx:key="cat_id" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchTab" class="cate-list {{curIndex === index?'on':''}}">{{item}}</view>
+    </scroll-view>
+    <scroll-view class="categroy-right" scroll-into-view="{{toView}}" scroll-with-animation="true" scroll-y="true" bindscrolltolower="searchScrollLower">
+      <block wx:for="{{detail}}" wx:for-index wx:key="cat_id">
+        <view id="{{item.id}}" class="cate-box">
+       
+          <view class="cate-title">
+            <text class='pname'>{{item.product_name}}</text>
+           
+            <view class='trs'>
+             <text class='moey'>￥{{item.market_price/100}}元/个</text>
+              <text class='rest'>状态:下架</text>
+            </view>
+            <text class='station-view'>库存200件</text>
+          </view>
+      
+        </view>
+      </block>
+      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>
+
+  </view>
+</view>

@@ -2,20 +2,20 @@
   <view class='search-title'>
     <view class='search-view'>
       <icon type="search" size="18" color="#888" style="float:left;margin-left:10rpx;"></icon>
-      <input placeholder="点击搜索" class='search-inputview' auto-focus/>
+      <input placeholder="请输入商品名称" class='search-inputview' bindinput='bindKeyInput' />
     </view>
-    <view class='serchbtn'>搜索</view>
+    <view class='serchbtn' bindtap='searchAction'>搜索</view>
   </view>
 
   <view class='kucun-total'>
     <view class='kcell'>
       <view class='sl'>库存数量</view>
-      <view class='sln'>1000</view>
+      <view class='sln'>{{goods_amount}}</view>
     </view>
-  
+
     <view class='kcell'>
       <view class='sl'>库存金额（元）</view>
-      <view class='sln'>1000万</view>
+      <view class='sln'>{{money}}</view>
     </view>
   </view>
 
@@ -24,20 +24,21 @@
       <view class="tab1 {{selectpaix==0?'tabselect':'notabselect'}}" bindtap='tvpaction' data-info='0'>按数量排序</view>
       <view class="tab1 {{selectpaix==0?'notabselect':'tabselect'}}" bindtap='tvpaction' data-info='1'>按金额排序</view>
     </view>
-  
-   <view class='biaoge'>
-  <block wx:for="{{['商品名称','数量','金额']}}">
-       <view class='snam nst'>{{item}}</view>
-  </block>
-  </view>
-  <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}">
+
     <view class='biaoge'>
-      <block wx:for="{{['雪碧','320.00','739.00']}}">
-        <view class='snam'>{{item}}</view>
+      <block wx:for="{{['商品名称','数量','库存金额']}}">
+        <view class='snam nst'>{{item}}</view>
       </block>
     </view>
-  </block>
-  
+    
+    <block wx:for="{{goodArr}}" wx:for-index="idx" wx:for-item="item">
+      <view class='biaoge'>
+        <view class='snam '>{{item.pname}}</view>
+        <view class='snam'>{{item.pamount}}</view>
+        <view class='snam'>{{item.price}}</view>
+      </view>
+    </block>
+
   </view>
 
 

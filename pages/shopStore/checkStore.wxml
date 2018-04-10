@@ -1,0 +1,53 @@
+<!--pages/storer/bouter.wxml-->
+<view class='container'>
+  <view class='headwr'>
+    <image src="/pages/images/scan.png" class='scanpng' bindtap='scanAction'></image>
+    <input class='inputView' placeholder='请输入商品编号' bindinput="bindRcodeInput" type='number' maxlength='13'></input>
+    <icon type='search' size="26" class='ipang' bindtap='searchAction' />
+  </view>
+  <view class='ylkb'></view>
+  <block wx:for="{{goodsArr}}" wx:for-index="idx" wx:for-item="itemName">
+    <view class='bcell'>
+      <view class='ltg'>
+        <view class='sname'>
+          <text>名称：{{itemName.name}}</text>
+          <view class='deletview' bindtap='deleCellAction'  data-info='{{idx}}'>x</view>
+        </view>
+        <view class='bsbnm'>
+          <text>No.{{itemName.gnum}}</text>
+          <view class='xtkc'>系统库存:{{itemName.amount}}</view>
+        </view>
+        <!-- <view class='jin'>{{itemName.price}}</view>   -->
+        <!-- <view class='jin'>
+          <view class='djd'>￥</view>
+          <input type='digit' value='{{itemName.price}}' bindblur='resetPrice' data-index='{{idx}}'></input>
+        </view> -->
+        <view class='kclab'>
+          <view class='sjkc'>
+            <text>实际库存:</text>
+            <input  class='vaturestore' type="number" maxlength="6" bindblur="bindManual" value="{{itemName.samount}}" data-index='{{idx}}'></input>
+            <image src='/pages/images/bianj.png'></image>
+          </view>
+        </view>
+
+      </view>
+      <!--右边-->
+      <!-- <view class='ltrt'>
+        <view class='bj' bindtap='deleCellAction' data-info='{{idx}}'>x</view>
+        <view class='jj'>
+          <view class='jt' bindtap='minusAction' data-info="{{idx}}">-</view>
+          <view class='jt nober'>
+            <input class='wthd' type="number" maxlength="6" bindblur="bindManual" value="{{itemName.amount}}" data-index='{{idx}}'/>
+          </view>
+          <view class='jt addt' bindtap='plusAction' data-info="{{idx}}">+</view>
+        </view>
+      </view> -->
+    </view>
+  </block>
+  <view class='kb'></view>
+  <view class='fd'>
+    <view class='fd1'> 合计:{{totalNum}}项</view>
+    <view class='fd2' bindtap='markSureAction'>确定</view>
+  </view>
+
+</view>

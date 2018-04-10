@@ -1,0 +1,144 @@
+<!--pages/shopStore/goodsEdit.wxml-->
+<view class='containner'>
+  <view class='tb'>
+    <text>商品名称：</text>
+    <input placeholder='请输入商品名称' bindblur='goodNameAction'  value='{{goodName}}'></input>
+  </view>
+  <view class='tb'>
+    <text>助记码：</text>
+    <input placeholder='请输入商品助记码' bindblur='rememberAction'  value='{{rememberCode}}'></input>
+  </view>
+  <view class='tb'>
+    <text>所属类目（一级）：</text>
+    <picker bindchange="bindTopClassPickerChange" value="{{topclassindex}}" range="{{topclassify}}" range-key="classify_name" class='pv'>
+      <view class='selectView'>
+        <view class="picker">
+          {{topclassify[topclassindex].classify_name}}
+        </view>
+        <image src='/pages/images/pushicon.png' class='psview' mode='aspectFit'></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class='tb unnotice'>
+    <text>所属类目（二级）：</text>
+    <picker bindchange="bindSubClassPickerChange" value="{{subclassindex}}" range="{{subclassify}}" range-key="classify_name" class='pv'>
+      <view class='selectView'>
+        <view class="picker">
+          {{subclassify[subclassindex].classify_name}}
+        </view>
+        <image src='/pages/images/pushicon.png' class='psview' mode='aspectFit'></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class='tb'>
+    <text>称重计量：</text>
+    <radio-group name="radio-group" class='rdico' bindchange="radioChange">
+      <label>
+        <radio value="1" />需要</label>
+      <label>
+        <radio value="0" />不需要</label>
+    </radio-group>
+  </view>
+
+  <view class='tb'>
+    <text>基本单位：</text>
+    <picker bindchange="bindUnitsPickerChange" value="{{unitIndex}}" range="{{sunits}}" class='pv'>
+      <view class='selectView'>
+        <view class="picker">
+          {{sunits[unitIndex]}}
+        </view>
+        <image src='/pages/images/pushicon.png' class='psview' mode='aspectFit'></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class='tb'>
+    <text>商品条码：</text>
+    <input placeholder='请输入商品条码' bindblur='ecodeMakesure' value='{{ecode}}' maxlength='13'></input>
+    <image src='/pages/images/scan.png' class='scanpng' bindtap='scanCode'></image>
+  </view>
+
+  <view class='tb unnotice noline'>
+    <text>商品规格：</text>
+    <view class='addgg' bindtap='showggAction' data-info="1" wx:if="{{!itemFlag1}}">添加规格+</view>
+    <picker bindchange="bindGGPickerChange" value="{{sizeIndex}}" range="{{sizeClass}}" class='gadit' wx:if="{{itemFlag1}}">
+      <view class='selectView'>
+        <view class="picker">
+          {{sizeClass[sizeIndex]}}
+        </view>
+        <image src='/pages/images/pushicon.png' class='psview' mode='aspectFit'></image>
+      </view>
+    </picker>
+    <input class='ggtext' wx:if="{{itemFlag1}}" bindblur='inputAction'></input>
+    <view class='deleAne' bindtap='deletAction' data-info="1" wx:if="{{itemFlag1}}">确定</view>
+  </view>
+  <view class='ggcontent'>
+    <block wx:for="{{sizeArr}}" wx:for-item="item" wx:for-index="idx">
+      <view class='ggt' bindtap='redeceAction' data-info='{{idx}}'>
+        <view class='ggtm'>{{sizeClass[item.pid]}}：{{item.mval}}</view>
+        <view class='dele'>x</view>
+      </view>
+    </block>
+  </view>
+
+  <view class='hb geli'>
+    <view class='leftmode'>
+      <text class='lprin'>成本价:</text>
+      <input placeholder='0.00' class='linp' bindblur='coastAction' value='{{oprice}}' type="digit"></input>
+    </view>
+
+    <view class='leftmode'>
+      <text class='lprin'>零售价:</text>
+      <input placeholder='0.00' class='linp' bindblur='sellAction' value='{{lprice}}' type="digit"></input>
+    </view>
+  </view>
+
+  <view class='hb'>
+    <view class='leftmode'>
+      <text class='lprin'>会员价:</text>
+      <input placeholder='0.00' class='linp' bindblur='hyAction' value='{{hprice}}' type="digit"></input>
+    </view>
+
+    <view class='leftmode'>
+      <text class='lprin'>批发价:</text>
+      <input placeholder='0.00' class='linp' bindblur='batchAction' value='{{pprice}}' type="digit"></input>
+    </view>
+  </view>
+
+  <view class='hb'>
+    <view class='leftmode'>
+      <text class='lprin'>提成方式:</text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='gadit'>
+        <view class='selectView'>
+          <view class="picker">
+            {{array[index]}}
+          </view>
+          <image src='/pages/images/pushicon.png' class='psview' mode='aspectFit'></image>
+        </view>
+      </picker>
+    </view>
+
+    <view class='leftmode' wx:if="{{index==1}}">
+      <text class='lprin'>提成比例:</text>
+      <input placeholder='0.00' class='linp nlw' bindblur='ticAction' value='{{dliveryValue}}' type="digit"></input>
+      <text class='bil'>%</text>
+    </view>
+
+    <view class='leftmode' wx:if="{{index==0}}">
+      <text class='lprin'>提成金额:</text>
+      <input placeholder='0.00' class='linp nlw' bindblur='ticAction' value='{{dliveryValue}}' type="digit"></input>
+      <text class='bil'>元</text>
+    </view>
+  </view>
+
+  <view class='note'>为必填项,请认真填写</view>
+  <view class='upload' bindtap='uploadAction'>提交</view>
+
+  <view class='kbv'></view>
+
+
+
+
+</view>

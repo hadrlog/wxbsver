@@ -8,7 +8,7 @@
   <view class='date-view'>
     <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
     <view class="date-info" wx:if="{{selctype==0}}">
-      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent1">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
       </picker>
     </view>
@@ -16,7 +16,7 @@
       <text>{{week}}</text>
     </view>
     <view class="date-info" wx:if="{{selctype==2}}">
-      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent2">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
       </picker>
     </view>
@@ -25,18 +25,18 @@
 
   <view class='zhutu'>
     <view class='intro'>
-      <view class='shname'>拉卡拉</view>
+      <view class='shname'>{{current_shopDetail.shopname}}</view>
       <view class='shopsale'>
         <view class='intrt'>
-          <view class='fk'></view>
-          <view class='tit'>营业额：1000.00</view>
+          <view class='fk fk2'></view>
+          <view class='tit'>营业额：{{current_shopDetail.srate}}</view>
         </view>
         <view class='intrt'>
-          <view class='fk fk2'></view>
-          <view class='tit'>毛利额：123.00</view>
+          <view class='fk'></view>
+          <view class='tit'>毛利额：{{current_shopDetail.crate}}</view>
         </view>
 
-        <view class='tit pst'>毛利率：23%</view>
+        <view class='tit pst'>毛利率：{{current_shopDetail.rblit}}%</view>
       </view>
     </view>
     <canvas canvas-id="columnCanvas" class="canvas"></canvas>
@@ -49,27 +49,33 @@
 
   <view class='bintu'>
     <view class='bintuleft'>
-    <block wx:for="{{[1,2,3,4,5]}}">
+    <block wx:for="{{trshops}}"  wx:for-index="idx" wx:for-item="item">
       <view class='bintuk'>
-        <view class='xiaokuai'></view>
-        <view class='mend'>山东紧密加工高专卖店:80%</view>
+        <view class='xiaokuai'  style="background-color:{{colors[idx]}}"></view>
+        <view class='mend'>{{item.shopname}}:{{item.rate}}%</view>
       </view>
     </block>
     </view>
     <canvas canvas-id="ringCanvas" class="canvas2"></canvas>
   </view>
 
-  <view class='biaot'>
+  <view class='biaot' wx:if="{{xiaoshoutype=='0'}}">
     <block wx:for="{{['门店','销售额','占比']}}">
       <view class='biaoy'>{{item}}</view>
     </block>
   </view>
+  <view class='biaot' wx:else>
+    <block wx:for="{{['门店','毛利额','占比']}}">
+      <view class='biaoy'>{{item}}</view>
+    </block>
+  </view>
 
-  <block wx:for="{{[1,2]}}">
+
+  <block wx:for="{{trshops}}" wx:for-index="idx" wx:for-item="item">
     <view class='biaot'>
-      <block wx:for="{{['拉卡拉','190232.22','100%']}}">
-        <view class='biaoy cbat'>{{item}}</view>
-      </block>
+        <view class='biaoy cbat'>{{item.shopname}}</view>
+         <view class='biaoy cbat'>{{item.sale}}</view>
+          <view class='biaoy cbat'>{{item.rate}}%</view>
     </view>
   </block>
 

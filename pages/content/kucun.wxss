@@ -101,7 +101,11 @@
   border-right: 1rpx solid lightgray;
   text-align: center;
   box-sizing: border-box;
-  padding: 20rpx 0rpx;
+ 
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .nst{
   border-top:  1rpx solid lightgray;

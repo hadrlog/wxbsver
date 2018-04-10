@@ -1,0 +1,68 @@
+/* pages/storer/smerchant.wxss */
+.cell{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid lightgray;
+ 
+}
+.lef{
+  box-sizing: border-box;
+  padding: 10rpx 10rpx;
+  width: 700rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+}
+.bianji{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 47rpx;
+}
+.manc{
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+   color: #696969; 
+}
+.sx{
+  margin-left: 15rpx;
+  font-size: 22rpx;
+  border: 1rpx solid #88D74C;
+  color: #88D74C;
+  box-sizing: border-box;
+  padding: 2rpx 5rpx;
+}
+
+.top{
+   margin-top: 15rpx; 
+  margin-bottom: 10rpx;
+}
+.tel{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: gray;
+}
+.adda{
+  width: 100%;
+  height: 70rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.adda text{
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  flex-grow: 1;
+}
+.addpic{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 40rpx;
+}

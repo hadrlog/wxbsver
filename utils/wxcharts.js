@@ -435,10 +435,17 @@ function getYAxisTextList(series, opts, config) {
 
     // fix issue https://github.com/xiaolin3303/wx-charts/issues/9
     if (minData === maxData) {
+      if (maxData ==0){
         var rangeSpan = maxData || 1;
+        minData = 0;
+        maxData += rangeSpan;
+      }else{
+        var rangeSpan = maxData || 1;  
         minData -= rangeSpan;
         maxData += rangeSpan;
+      }
     }
+   
 
     var dataRange = getDataRange(minData, maxData);
     var minRange = dataRange.minRange;
@@ -454,7 +461,6 @@ function getYAxisTextList(series, opts, config) {
 }
 
 function calYAxisData(series, opts, config) {
-
     var ranges = getYAxisTextList(series, opts, config);
     var yAxisWidth = config.yAxisWidth;
     var rangesFormat = ranges.map(function (item) {
@@ -466,8 +472,7 @@ function calYAxisData(series, opts, config) {
     if (opts.yAxis.disabled === true) {
         yAxisWidth = 0;
     }
-
-    return { rangesFormat: rangesFormat, ranges: ranges, yAxisWidth: yAxisWidth };
+    return { rangesFormat: rangesFormat, ranges: ranges, yAxisWidth: yAxisWidth};
 }
 
 function drawPointShape(points, color, shape, context) {
@@ -516,43 +521,43 @@ function drawPointShape(points, color, shape, context) {
 }
 
 function drawRingTitle(opts, config, context) {
-    var titlefontSize = opts.title.fontSize || config.titleFontSize;
-    var subtitlefontSize = opts.subtitle.fontSize || config.subtitleFontSize;
-    var title = opts.title.name || '';
-    var subtitle = opts.subtitle.name || '';
-    var titleFontColor = opts.title.color || config.titleColor;
-    var subtitleFontColor = opts.subtitle.color || config.subtitleColor;
-    var titleHeight = title ? titlefontSize : 0;
-    var subtitleHeight = subtitle ? subtitlefontSize : 0;
-    var margin = 5;
-    if (subtitle) {
-        var textWidth = measureText(subtitle, subtitlefontSize);
-        var startX = (opts.width - textWidth) / 2;
-        var startY = (opts.height - config.legendHeight + subtitlefontSize) / 2;
-        if (title) {
-            startY -= (titleHeight + margin) / 2;
-        }
-        context.beginPath();
-        context.setFontSize(subtitlefontSize);
-        context.setFillStyle(subtitleFontColor);
-        context.fillText(subtitle, startX, startY);
-        context.stroke();
-        context.closePath();
-    }
+  var titlefontSize = opts.title.fontSize || config.titleFontSize;
+  var subtitlefontSize = opts.subtitle.fontSize || config.subtitleFontSize;
+  var title = opts.title.name || '';
+  var subtitle = opts.subtitle.name || '';
+  var titleFontColor = opts.title.color || config.titleColor;
+  var subtitleFontColor = opts.subtitle.color || config.subtitleColor;
+  var titleHeight = title ? titlefontSize : 0;
+  var subtitleHeight = subtitle ? subtitlefontSize : 0;
+  var margin = 5;
+  if (subtitle) {
+    var textWidth = measureText(subtitle, subtitlefontSize);
+    var startX = (opts.width - textWidth) / 2 + (opts.subtitle.offsetX || 0);
+    var startY = (opts.height - config.legendHeight + subtitlefontSize) / 2;
     if (title) {
-        var _textWidth = measureText(title, titlefontSize);
-        var _startX = (opts.width - _textWidth) / 2;
-        var _startY = (opts.height - config.legendHeight + titlefontSize) / 2;
-        if (subtitle) {
-            _startY += (subtitleHeight + margin) / 2;
-        }
-        context.beginPath();
-        context.setFontSize(titlefontSize);
-        context.setFillStyle(titleFontColor);
-        context.fillText(title, _startX, _startY);
-        context.stroke();
-        context.closePath();
+      startY -= (titleHeight + margin) / 2;
     }
+    context.beginPath();
+    context.setFontSize(subtitlefontSize);
+    context.setFillStyle(subtitleFontColor);
+    context.fillText(subtitle, startX, startY);
+    context.stroke();
+    context.closePath();
+  }
+  if (title) {
+    var _textWidth = measureText(title, titlefontSize);
+    var _startX = (opts.width - _textWidth) / 2 + (opts.title.offsetX || 0);
+    var _startY = (opts.height - config.legendHeight + titlefontSize) / 2;
+    if (subtitle) {
+      _startY += (subtitleHeight + margin) / 2;
+    }
+    context.beginPath();
+    context.setFontSize(titlefontSize);
+    context.setFillStyle(titleFontColor);
+    context.fillText(title, _startX, _startY);
+    context.stroke();
+    context.closePath();
+  }
 }
 
 function drawPointText(points, series, config, context) {
@@ -1351,10 +1356,19 @@ var Charts = function Charts(opts) {
 };
 
 Charts.prototype.updateData = function () {
-    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    this.opts.series = data.series || this.opts.series;
-    this.opts.categories = data.categories || this.opts.categories;
-    drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);
+    // var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    // this.opts.series = data.series || this.opts.series;
+    // this.opts.categories = data.categories || this.opts.categories;
+    // drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);
+  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  this.opts.series = data.series || this.opts.series;
+  this.opts.categories = data.categories || this.opts.categories;
+
+  this.opts.title = assign({}, this.opts.title, data.title || {});
+  this.opts.subtitle = assign({}, this.opts.subtitle, data.subtitle || {});
+
+  drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);
 };
 
 Charts.prototype.stopAnimation = function () {

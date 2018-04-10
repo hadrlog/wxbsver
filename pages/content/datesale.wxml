@@ -4,7 +4,7 @@
   <view class='date-view'>
     <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
     <view class="date-info" wx:if="{{selctype==0}}">
-      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent1">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
       </picker>
     </view>
@@ -13,7 +13,7 @@
     </view>
 
     <view class="date-info" wx:if="{{selctype==2}}">
-      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent2">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
       </picker>
     </view>
@@ -30,12 +30,12 @@
   <view class='sed'>
     <view class='sed-part1 smt'>
       <view class='tp-view'>最高值（元）</view>
-      <view class='delivery-view'>1200.00</view>
+      <view class='delivery-view'>{{topvalue}}</view>
     </view>
 
     <view class='sed-part1'>
       <view class='tp-view'>平均值（元）</view>
-      <view class='delivery-view'>100.00</view>
+      <view class='delivery-view'>{{delveryvalue}}</view>
     </view>
   </view>
 

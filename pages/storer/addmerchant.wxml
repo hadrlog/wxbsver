@@ -1,0 +1,31 @@
+<!--pages/storer/addmerchant.wxml-->
+<view class='container'>
+  <view class='cell'>
+    <text>供应商名称：</text>
+    <input placeholder='请输入供应商名称' value="{{ceshi}}" bindblur='reqAction' data-info='1'></input>
+  </view>
+
+  <view class='cell'>
+    <text>供应商代码：</text>
+    <input placeholder='请输入供应商代码' bindblur='reqAction' data-info='2'></input>
+  </view>
+
+  <view class='cell'>
+    <text>联系人：</text>
+    <input placeholder='请输入联系人名称' bindblur='reqAction' data-info='3'></input>
+  </view>
+
+  <view class='cell'>
+    <text>手机号码：</text>
+    <input placeholder='请输入联系人手机号码' bindblur='reqAction' data-info='4'></input>
+  </view>
+
+  <view class='bcell'>
+    <text class='bt'>备注：</text>
+    <input class='beizhu'></input>
+  </view>
+
+  <view class='masur' bindtap='reServeAction'>确认</view>
+
+
+</view>

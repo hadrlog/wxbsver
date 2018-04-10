@@ -118,7 +118,7 @@
 .sb-view {
   width: 22rpx;
   height: 22rpx;
-  background-color: #1a96fe;
+  background-color: #89D951;
   margin-left: 80rpx;
   /* margin-top: 10rpx; */
 }
@@ -209,5 +209,5 @@
 .ztx {
   margin-right: 30rpx;
   margin-left: 470rpx;
-  margin-top: -50rpx;
+  margin-top: -42rpx;
 }

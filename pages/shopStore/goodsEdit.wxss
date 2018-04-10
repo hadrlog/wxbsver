@@ -1,0 +1,217 @@
+/* pages/shopStore/goodsEdit.wxss */
+
+.tb {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  height: 88rpx;
+  margin-bottom: 3rpx;
+  border-bottom: 1rpx solid lightgray;
+}
+
+.tb text {
+  font-size: 32rpx;
+}
+
+.tb text::before {
+  content: '*';
+  color: red;
+  margin-right: 4rpx;
+}
+.ggcontent{
+  background-color: white;
+  margin-top: -3rpx;
+  width: 100%;
+  font-size: 24rpx;
+  display: flex;
+  flex-wrap:  wrap;
+  box-sizing: border-box;
+  padding: 10rpx 0rpx;
+}
+.ggt{
+  display: flex;
+  flex-direction: row;
+  background-color: lightgray;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx;
+ 
+  margin-top: 5rpx;
+  justify-content: space-between;
+  border-radius: 5rpx;
+  
+   margin-bottom: 10rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.ggtm{
+  /* margin-left: 30prx; */
+}
+.dele{
+  margin-top: -10rpx;
+  margin-left: 20rpx;
+}
+.noline{
+  border-bottom: 0rpx solid white;
+}
+.tb input {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  background-color: whitesmoke;
+  flex-grow: 1;
+  margin-right: 20rpx;
+  height: 66rpx;
+}
+
+.scanpng {
+  margin-right: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.pv {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  background-color: whitesmoke;
+  flex-grow: 1;
+  margin-right: 20rpx;
+  height: 66rpx;
+}
+
+.selectView {
+  background-color: whitesmoke;
+  font-size: 32rpx;
+  flex-grow: 1;
+  margin-left: 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-right: 10rpx;
+  color: gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10rpx;
+}
+
+.picker {
+  width: 100%;
+  margin-left: 5rpx;
+  font-size: 32rpx;
+}
+
+.psview {
+  width: 26rpx;
+  height: 24rpx;
+}
+
+.unnotice text::before {
+  color: white;
+}
+
+.rdico {
+  font-size: 30rpx;
+  color: gray;
+  margin-left: 20rpx;
+}
+
+.addgg {
+  width: 200rpx;
+  height: 50rpx;
+  background-color: white;
+  border: 1rpx solid lightgray;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: gray;
+}
+
+.gadit {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  background-color: whitesmoke;
+  height: 66rpx;
+}
+
+.ggtext {
+  border: 1rpx solid lightgray;
+  width: 180rpx;
+}
+
+.deleAne {
+  font-size: 28rpx;
+  color: blue;
+  flex-grow: 1;
+}
+
+.hb {
+  height: 88rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid lightgray;
+}
+
+.geli {
+  margin-top: 40rpx;
+}
+
+.leftmode {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+}
+
+.lprin {
+  font-size: 32rpx;
+}
+
+.lprin::before {
+  content: '*';
+  color: red;
+  margin-right: 4rpx;
+}
+
+.linp {
+  background-color: whitesmoke;
+  height: 66rpx;
+  width: 240rpx;
+  margin-left: 8rpx;
+}
+.bil{
+  color: red;
+  font-size: 32rpx;
+}
+.nlw{
+   width: 170rpx; 
+  color: red;
+}
+
+.upload{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  height: 88rpx;
+  text-align: center;
+  background-color: #44B548;
+  color: white;
+  line-height: 88rpx;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+}
+.note{
+  margin-top: 70rpx;
+  color: gray;
+  font-size: 30rpx;
+}
+.note::before{
+  content: "*";
+  color: red;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+.kbv{
+  height: 60rpx;
+}

@@ -1,0 +1,195 @@
+/* pages/storer/goods.wxss */
+.search_head{
+  width: 100%;
+  height: 80rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: 0rpx;
+  /* justify-content: center; */
+}
+.seinp{
+  margin-left: 30rpx;
+  background-color: whitesmoke;
+  /* margin-right: 30rpx; */
+  /* text-align: center; */
+  border-radius: 20rpx;
+     width: 540rpx;   
+   /* margin-right: 30rpx; */
+  font-size: 28rpx;
+
+}
+.detail-view{
+  margin-top: 85rpx;
+  width: 100%;
+}
+.serch-view{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 15rpx;
+}
+.serc{
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  height: 70rpx;
+  align-items: center;
+  margin-left: 30rpx;
+  border-radius: 15rpx;
+  flex-grow: 1;
+}
+.scan-view{
+  width: 55rpx;
+  height: 55rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+
+}
+.seinp:-moz-placeholder{
+  font-size: 24rpx;
+}
+.cell{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-top: 2rpx; */
+}
+.good-view{
+  width: 160rpx;
+  height: 160rpx;
+}
+.crig{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1rpx solid lightgray;
+  
+}
+.shnode{
+  width: 20rpx;
+  height: 20rpx;
+}
+.sj image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.shp{
+  /* margin-top: 20rpx; */
+  font-size: 28rpx;
+  /* color: #696969; */
+  
+  margin-left: 15rpx;
+}
+.binah{
+  /* margin-top: 40rpx; */
+  font-size: 23rpx;
+  color: gray;
+  margin-left: 10rpx;
+}
+.hsp{
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.station{
+  color: gray;
+  font-size: 24rpx;
+  margin-right: 30rpx;
+}
+.tss{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.thp{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sthp{
+  margin-top: 10rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 26rpx;
+  flex-grow: 1;
+}
+.money{
+  margin-left:20rpx;
+font-size:26rpx;
+/* color:#FF4500; */
+}
+.money::before{
+  content: '规格：';
+  color: black;
+  font-size: 27rpx;
+  font-weight: 400;
+}
+.money2{
+  margin-left:20rpx;
+font-size:26rpx;
+color:#FF4500;
+}
+.money2::before{
+  margin-left: 30rpx;
+  content: '成本价格：';
+  color: black;
+  font-size: 27rpx;
+  font-weight: 400;
+}
+.money3{
+ margin-left:20rpx;
+font-size:26rpx;
+color:#49B34E;
+}
+.money3::before{
+  margin-left: 30rpx;
+  content: '单位：';
+  color: black;
+  font-size: 27rpx;
+  font-weight: 400;
+}
+.jub{
+  margin-left: 30rpx;
+}
+.seleview{
+  margin-left: 30rpx;
+  /* border-left: 1rpx solid black; */
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+}
+
+.bthp{
+/* margin-top:-15rpx; */
+margin-left:15rpx;
+/* color:#696969; */
+flex-grow: 1;
+display: flex;
+flex-direction: row;
+align-items: center;
+
+}
+.bthp text{
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  color: red;
+}
+.sj{
+  display: flex;
+  flex-direction: column;
+  margin-right: 30rpx;
+  align-items: center;
+
+}
+.sj view{
+  margin-top: 8rpx;
+  font-size: 20rpx;
+}

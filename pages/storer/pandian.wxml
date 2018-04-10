@@ -1,0 +1,42 @@
+<!--pages/storer/pandian.wxml-->
+<view class='container'>
+  <view class='headline'>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='datefrom'>
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+    <text class='tex'>至</text>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class='datefrom'>
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+    <view class='qur'>搜索</view>
+  </view>
+
+  <view class='cont'>
+    <view class='padc'>
+      <view class='pdjl'>盘点记录</view>
+    </view>
+    <view class=''></view>
+    <block wx:for="{{[1,2,3,4,6]}}">
+      <view class='cell'>
+        <view class='line1'>
+          <text class='lt1'>PD99809510483296256</text>
+          <text class='lt2'>2018-01-06 16:29:27</text>
+        </view>
+        <view class='line2'>经办人:张三</view>
+        <view class='line3'>
+          <text class='sp1'>2种</text>
+          <text class='sp2'>120.00</text>
+          <text class='sp3'>---</text>
+        </view>
+      </view>
+
+    </block>
+  </view>
+
+
+
+</view>

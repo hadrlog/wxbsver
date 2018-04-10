@@ -37,6 +37,11 @@
   align-items: center;
   justify-content: space-around;
 }
+.btatl{
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap
+}
 
 .jiantou {
   content: '';
@@ -80,12 +85,15 @@ margin-top:70rpx;
 
 }
 .rig{
-  margin-left:530rpx;
+  margin-left:510rpx;
 margin-top:100rpx;
 
 }
 .ptop{
   font-size: 28rpx;
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap
 }
 .tps{
   font-size: 22rpx;
@@ -95,6 +103,7 @@ margin-top:100rpx;
   width: 100%;
   background-color: white;
 }
+
 .hesv{
   width: 100%;
   display: flex;
@@ -193,7 +202,7 @@ margin-top:100rpx;
   flex-wrap: wrap;
    justify-content: flex-start; 
   /* justify-content: center; */
-  margin-left: 80rpx;
+  margin-left: 20rpx;
   
 }
 .btx{
@@ -218,6 +227,7 @@ margin-top:100rpx;
   line-height: 70rpx;
   font-size: 30rpx;
   color: gray;
+  text-overflow: true;
 }
 .changhd{
   /* background-color: gray;
@@ -231,6 +241,9 @@ margin-top:100rpx;
   align-items: center;
   background-color: white;
   color: gray;
+  white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
 }
 .cb1{
   width: 187.5rpx;
@@ -241,4 +254,5 @@ margin-top:100rpx;
     font-size: 28rpx;
     line-height: 70rpx;
     text-align: center;
+    white-space: wrap;
 }

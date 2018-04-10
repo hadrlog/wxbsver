@@ -1,0 +1,23 @@
+<!--pages/storer/goodcategary.wxml-->
+<view class='container'>
+    <view class='search_head'>
+    <view class='serc'>
+      <image src='/pages/images/serch.png' class='serch-view'></image>
+      <input class='seinp' placeholder='搜索商品分类名称'></input>
+    </view>
+    <image src='/pages/images/sadd.png' class='scan-view' bindtap='addcategery'></image>
+  </view>
+
+  <view class='detail-view'>
+    <block wx:for="{{[1,2,3,45,4,6,4]}}">
+      <view class='cell'>
+        <text class='t1'>香飘飘奶茶</text>
+        <text class='t2'>(二级)</text>
+        <view class='v1'>停用</view>
+        <view class='v2' bindtap='addcategery'>编辑</view>
+      </view>
+    </block>
+  </view>
+
+
+</view>

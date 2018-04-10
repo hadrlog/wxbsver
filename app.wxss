@@ -8,3 +8,8 @@ page {
   min-height: 100%;
   background-color: whitesmoke;
 }
+.flex_Center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

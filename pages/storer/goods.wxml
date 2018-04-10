@@ -1,0 +1,38 @@
+<!--pages/storer/goods.wxml-->
+<view class='container'>
+  <view class='search_head'>
+    <view class='serc'>
+      <image src='/pages/images/serch.png' class='serch-view'></image>
+      <input class='seinp' placeholder='搜索商品或者助记码'></input>
+    </view>
+    <image src='/pages/images/scan.png' class='scan-view'></image>
+  </view>
+
+  <view class='detail-view'>
+    <block wx:for="{{[1,2,3,45,4,6,4,2,3,45,4,6,4]}}">
+      <view class='cell' bindtap='goodsdetail'>
+        <view class='crig'>
+        <view class='hsp'>
+        <view class='shp'>新商品上新商</view>
+          <view class='binah'>(No.1801040000000150)</view>
+        </view>
+          
+           <!-- <view class='station'>已上架</view> -->
+          <view class='tss'>
+          <view class='money'>颜色：惨白;尺码：无;</view>
+       
+          <!-- <view class='money3'>件</view> -->
+          </view>
+          <view class='tss'>
+            <view class='bthp'>
+              <image class='shnode' src='/pages/images/node.png'></image>
+              <text>库存：100件</text>
+              <text class='seleview'>销量：100件</text>
+            </view>
+            <view class='station'>已上架</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

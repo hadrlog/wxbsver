@@ -1,0 +1,80 @@
+<!--pages/shopStore/listDetail.wxml-->
+<view class='container'>
+  <!-- <view class='commen'>商户号：12312312314</view>
+  <view class='commen'>门店号：12312312314</view>
+  <view class='commen'>单据编号：12312312314</view>
+  <view class='commen'>业务类型：普通入库</view>
+  <view class='commen'>经办人：18321142168</view>
+  <view class='commen'>商品数量：123124</view>
+  <view class='commen'>调货门店：阿里巴巴</view>
+  <view class='commen'>供应商：阿里巴巴</view>
+  <view class='kbv'></view>
+  <view class='commen'>商品总价：￥1000</view>
+  <view class='commen'>盘亏金额：￥1000</view>
+  <view class='commen'>盘盈金额：￥1000</view>
+
+  <view class='commen'>成本价差额汇总：￥1000</view>
+  <view class='commen'>零售价差额汇总：￥1000</view>
+  <view class='commen'>会员价差额汇总：￥1000</view>
+  <view class='commen'>批发价差额汇总：￥1000</view>
+  <view class='kbv'></view>
+  <view class='commen waitcheck'>状态：待审核</view>
+
+  <view class='audicvc'>审核通过</view> -->
+  <view class='bianhao'>订单数据</view>
+  <view class='topView'>
+    <view class='commen'>商户号：{{bill.merchant_no}}</view>
+    <view class='commen' wx:if="{{bill.record_type =='00'}}">业务类型：盘亏</view>
+    <view class='commen' wx:elif="{{bill.record_type =='01'}}">业务类型：普通入库</view>
+    <view class='commen' wx:elif="{{bill.record_type =='11'}}">业务类型：普通出库</view>
+    <view class='commen' wx:elif="{{bill.record_type =='02'}}">业务类型：盘盈</view>
+    <view class='commen' wx:elif="{{bill.record_type =='04'}}">业务类型：盘平</view>
+    <view class='commen' wx:elif="{{bill.record_type =='05'}}">业务类型：采购入库</view>
+    <view class='commen' wx:elif="{{bill.record_type =='06'}}">业务类型：调货入库</view>
+    <view class='commen' wx:elif="{{bill.record_type =='07'}}">业务类型：调货出库</view>
+    <view class='commen' wx:elif="{{bill.record_type =='08'}}">业务类型：采购退货出库</view>
+    <view class='commen' wx:elif="{{bill.record_type =='09'}}">业务类型：采购单</view>
+    <view class='commen' wx:elif="{{bill.record_type =='10'}}">业务类型：调货单</view>
+    <view class='commen' wx:elif="{{bill.record_type =='12'}}">业务类型：采购退货单</view>
+    <view class='commen' wx:elif="{{bill.record_type =='13'}}">业务类型：调价单</view>
+    <view class='commen'>门店号：{{bill.shop_no}}</view>
+    <view class='commen'>单据编号：{{bill.bill_no}}</view>
+    <view class='commen'>经办人：{{bill.hander_user}}</view>
+    <view class='commen'>商品数量：{{bill.product_num}}</view>
+    <view class='commen' wx:if="{{bill.source_shop_no}}">调出门店：{{bill.source_shop_no}}</view>
+    <view class='commen' wx:if="{{bill.supplier_no}}">供应商：{{bill.supplier_no}}</view>
+    <view class='commen jne jne1'>￥{{bill.add_amt*0.01}}</view>
+    <view class='commen jne jne2'>￥{{bill.minus_amt*0.01}}</view>
+    <view class='commen jne jne3'>￥{{bill.purchase_amt*0.01}}</view>
+    <view class='commen jne jne4'>￥{{bill.other_price*0.01}}</view>
+    <view class='commen jne jne5'>￥{{bill.total_price*0.01}}</view>
+    <view class='commen tatas' wx:if="{{bill.audit_state=='0'}}">待审核</view>
+     <view class='commen tatas' wx:elif="{{bill.audit_state=='1'}}">审核通过</view>
+  </view>
+  <view class='bianhao bth'>商品数据</view>
+  <block wx:for="{{goodlist}}" wx:for-index='idx' wx:for-item="item">
+    <view class='topView btnline'>
+      <view class='commen'>商品名称：{{item.product_name}}</view>
+      <view class='commen'>商品条码：{{item.product_code}}</view>
+      <view class='commen'>单位：{{item.base_unit}}</view>
+      <view class='commen bne bne1' wx:if="{{item.sys_store}}">{{item.sys_store}}</view>
+      <view class='commen bne bne2' wx:if="{{item.actual_store}}">{{item.actual_store}}</view>
+      <view class='commen bne bne3' wx:if="{{item.out_store}}">{{item.out_store}}</view>
+      <view class='commen bne bne4' wx:if="{{item.in_store}}">{{item.in_store}}</view>
+
+      <view class='commen jne bjne1'>￥{{item.purchase_cost_price*0.01}}</view>
+      <view class='commen jne bjne2'>￥{{item.total_price*0.01}}</view>
+
+
+      <view class='commen jne bjne3'>￥{{item.out_amt*0.01}}</view>
+      <view class='commen jne bjne4'>￥{{item.in_amt*0.01}}</view>
+
+
+      <view class='commen jne bjne5' wx:if="{{item.other_price}}">￥{{item.other_price}}</view>
+      <view class='commen' wx:if="{{item.remark}}">备注：{{item.remark}}</view>
+
+    </view>
+  </block>
+  <view class='shenh' wx:if="{{bill.audit_state=='0'}}" bindtap='shAction'>审核</view>
+   <view class='shenh' wx:elif="{{bill.audit_state=='1'}}" bindtap='backAction'>返回</view>
+</view>

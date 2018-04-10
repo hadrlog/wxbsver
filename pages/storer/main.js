@@ -8,7 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    contentImage: [{ tittle: '收货入库', image: "/pages/images/shouk.png" }, { tittle: '发货出库', image: "/pages/images/ribao.png" }, { tittle: '库存盘点', image: "/pages/images/xiaoshou.png" }, { tittle: '单据查询', image: "/pages/images/keliul.png" }, { tittle: '库存查询', image: "/pages/images/kucun.png" }]
+    contentImage: [{ tittle: '库存查询', image: "/pages/images/shouk.png" }, { tittle: '出库', image: "/pages/images/ribao.png" }, { tittle: '入库', image: "/pages/images/xiaoshou.png" }, { tittle: '库存盘点', image: "/pages/images/keliul.png" }, { tittle: '单据审核', image: "/pages/images/keliul.png" }, { tittle: '供应商', image: "/pages/images/keliul.png" }, { tittle: '添加商品', image: "/pages/images/keliul.png" }]
   },
   //事件处理函数
   bindViewTap: function () {
@@ -65,7 +65,7 @@ Page({
         console.log('---');
 
         wx.navigateTo({
-          url: '/pages/content/paydetial',
+          url: '/pages/content/kucun',
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { },
@@ -75,7 +75,8 @@ Page({
       case 1:
         console.log('++');
         wx.navigateTo({
-          url: '/pages/content/datesale',
+          // url: '/pages/storer/goods',
+          url: '/pages/storer/bouter',
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { },
@@ -83,7 +84,7 @@ Page({
         break;
       case 3:
         wx.navigateTo({
-          url: '/pages/content/kell',
+          url: '/pages/storer/goods',
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { },
@@ -91,7 +92,8 @@ Page({
         break;
       case 4:
         wx.navigateTo({
-          url: '/pages/content/kucun',
+        
+          url: '/pages/storer/pandian',
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { },
@@ -99,12 +101,17 @@ Page({
         break;
       case 2:
         wx.navigateTo({
-          url: '/pages/content/paihan',
+          url: '/pages/storer/interstore',
         })
         break;
       case 5:
         wx.navigateTo({
-          url: '/pages/content/xiaoshou',
+          url: '/pages/storer/smerchant',
+        })
+        break;
+      case 6:
+        wx.navigateTo({
+          url: '/pages/storer/goodcategary',
         })
         break;
     }

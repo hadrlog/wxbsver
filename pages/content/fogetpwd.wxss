@@ -1,0 +1,55 @@
+/* pages/content/fogetpwd.wxss */
+.cell{
+  width: 100%;
+  background-color: white;
+  height: 90rpx;
+  border-bottom: 1rpx solid lightgray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 32rpx;
+}
+.user{
+  margin-left: 10rpx;
+  font-size: 32rpx;
+}
+.username{
+  margin-left: 15rpx;
+  flex-grow: 1;
+}
+.indetify_view{
+  margin-right: 10rpx;
+  color: #1a96fe;
+  border: 1rpx solid #1a96fe;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+.picker{
+  background-color: whitesmoke;
+  width: 500rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+   color: #1a96fe;
+}
+.mgb{
+  margin-top: 40rpx;
+  border-bottom: 1rpx solid whitesmoke;
+}
+.tijiao{
+  background-color: #1a96fe;
+  color: white;
+  width: 710rpx;
+  margin-left: 20rpx;
+  margin-top: 60rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 20rpx;
+ 
+}

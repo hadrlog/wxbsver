@@ -1,0 +1,56 @@
+<!--pages/storer/outer.wxml-->
+<import src="../../utils/Dialog.wxml" />
+<view class='container'>
+  <view class='hearder' wx:if="{{googsArr.length>0}}">
+    <view class='hg'>商品列表</view>
+    <view class='hb' bindtap='bianjiAction' wx:if="{{!edit}}">编辑</view>
+    <view class='hb' bindtap='bianjiAction' wx:if="{{edit}}">完成</view>
+  </view>
+
+  <view wx:if="{{googsArr.length==0}}" class='flex_Center distance'>请点击添加商品</view>
+  <block wx:for="{{googsArr}}" wx:for-index="index" wx:for-item="item">
+    <view class='bcell'>
+      <view class='ltg'>
+        <view class='sname'>名称：水果</view>
+
+        <view class='bnum'>
+          <icon wx:if="{{selectedAllStatus}}" type="success_circle" size="20" />
+          <icon wx:else type="circle" size="20" />
+          <view class='bsbnm'>No.1232131231231231</view>
+        </view>
+
+
+        <view class='jin'>￥0.01</view>
+      </view>
+      <!--右边-->
+      <view class='ltrt'>
+        <view class='bj' wx:if="{{edit}}" bindtap='deleCellAction' data-info='{{index}}'>x</view>
+        <view class='jj'>
+          <view class='jt'>-</view>
+          <view class='jt nober'>
+            <input class='wthd' type="number" maxlength="6" bindchange="bindManual" value="123455" />
+          </view>
+          <view class='jt addt'>+</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='kb'></view>
+
+  <view class='fd'>
+    <view class='fd1'>
+
+      <icon wx:if="{{selectedAllStatus}}" type="success_circle" size="24" />
+      <icon wx:else type="circle" size="24" />
+
+
+      <view>全选</view>
+    </view>
+
+
+    <view class='fd2'>出库</view>
+    <view class='fd2 fd3' bindtap='addGoods'>添加商品</view>
+  </view>
+
+</view>
+<template is="diaCenterView" data="{{showCenterDialog:showCenterDialog,qcode:qcodenum,gnum:goodnum,price:goodprice}}" />

@@ -1,0 +1,26 @@
+<!--pages/storer/goodcategaryadd.wxml-->
+<view class='container'>
+  <view class='cell'>
+    <text class='fnmc'>分类名称:</text>
+    <input placeholder='请输入分类名称' class='inputview' bindblur="className"></input>
+  </view>
+
+  <view class='cell'>
+    <text>上级分类</text>
+
+
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="classify_name" class='pickview'>
+      <view class="picker">
+        {{array[index].classify_name}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='cell'>
+    <text>备注:</text>
+    <textarea class='tarea' bindblur="bindTextAreaBlur" x/>
+  </view>
+
+  <view class='maks' bindtap='makesure'>确认</view>
+
+</view>

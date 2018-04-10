@@ -3,7 +3,7 @@
  <view class='date-view'>
     <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
     <view class="date-info" wx:if="{{selctype==0}}">
-      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent1">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
       </picker>
     </view>
@@ -12,7 +12,7 @@
     </view>
 
     <view class="date-info" wx:if="{{selctype==2}}">
-      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent2">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
       </picker>
     </view>
@@ -29,7 +29,7 @@
   <view class='addvip'>
     <view class='bock'></view>
     <view class='adduser'>今日新增会员</view>
-    <view class='usernum'>5</view>
+    <view class='usernum'>{{member}}</view>
   </view>
 
   <view class='zhanbi'>
@@ -43,12 +43,12 @@
       <view class='righvew'>
         <view class='intr-view'>
           <view class='book'></view>
-          <view class='intro'>83.29%</view>
+          <view class='intro'>{{mbili}}%</view>
         </view>
 
         <view class='intr-view'>
           <view class='book bk2'></view>
-          <view class='intro intr2'>16.71%</view>
+          <view class='intro intr2'>{{nmbili}}%</view>
         </view>
       </view>
     </view>

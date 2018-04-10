@@ -1,0 +1,57 @@
+<!--pages/shopStore/auditList.wxml-->
+<view class='container'>
+  <view class='header'>
+    <view class='ltb'>
+      <text>类别:</text>
+
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key='typeName' class='pv'>
+        <view class='selectView'>
+          <view class="picker">
+            {{array[index].typeName}}
+          </view>
+          <image src='/pages/images/pushicon.png' class='psview' mode='aspectFit'></image>
+        </view>
+      </picker>
+
+    </view>
+    <view class='dtv'>
+      <text>日期:</text>
+      <picker bindchange="datePickerChange" value="{{dindex}}" range="{{dayArr}}" class='pv'>
+        <view class='selectView'>
+          <view class="picker">
+            {{dayArr[dindex]}}
+          </view>
+          <image src='/pages/images/pushicon.png' class='psview' mode='aspectFit'></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='kbv'></view>
+  <block wx:for="{{listDate}}" wx:for-index="idx" wx:for-item='itemName'>
+    <view class='cell' bindtap='showDetail' data-info="{{idx}}">
+      <view class='lft'>
+        <view class='lftsub'>单据编号：{{itemName.bill_no}}</view>
+        <view class='lftsub'>经办人：{{itemName.hander_user}}</view>
+        <view class='lftsub' wx:if="{{itemName.record_type =='00'}}">类型：盘亏</view>
+        <view class='lftsub' wx:elif="{{itemName.record_type =='01'}}">类型：普通入库</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='11'}}">类型：普通出库</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='02'}}">类型：盘盈</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='04'}}">类型：盘平</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='05'}}">类型：采购入库</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='06'}}">类型：调货入库</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='07'}}">类型：调货出库</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='08'}}">类型：采购退货出库</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='09'}}">类型：采购单</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='10'}}">类型：调货单</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='12'}}">类型：采购退货单</view>
+         <view class='lftsub' wx:elif="{{itemName.record_type =='13'}}">类型：调价单</view>
+       
+        <view class='lftsub lstats' wx:if="{{itemName.audit_state==0}}">待审核</view>
+        <view class='lftsub lstats lsbt' wx:elif="{{itemName.audit_state==1}}">审核通过</view>
+      </view>
+      <view class='rlt'>详情➤</view>
+    </view>
+  </block>
+  <view class='flex_Center nolist' wx:if="{{listDate.length==0}}">~~~未查询到数据~~~~</view>
+
+</view>

@@ -1,0 +1,150 @@
+/* pages/shopStore/listDetail.wxss */
+
+.commen {
+  box-sizing: border-box;
+  padding: 8rpx 10rpx;
+  font-size: 26rpx;
+  background-color: white;
+   width: 50%; 
+  color: black;
+}
+
+.kbv {
+  height: 40rpx;
+}
+
+.topView {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  background-color: white;
+  /* justify-content: space-between; */
+}
+
+.audicvc {
+  margin-right: 40rpx;
+  margin-top: 60rpx;
+  background-color: #db3e3e;
+  margin-left: 40rpx;
+  color: white;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.waitcheck {
+  color: #db3e3e;
+}
+
+.bianhao {
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  font-size: 26rpx;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  border-bottom: 1rpx double lightgray;
+  font-weight: 700;
+}
+
+.bth {
+  margin-top: 15rpx;
+}
+
+.btnline {
+  border-bottom: 1rpx dashed lightgray;
+}
+
+.shenh {
+  font-size: 34rpx;
+  text-align: center;
+  margin: 60rpx 30rpx;
+  color: white;
+  height: 80rpx;
+  background-color: #db3e3e;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+}
+
+.tatas {
+  color: #09bb07;
+}
+
+.tatas::before {
+  content: '状态：';
+  color: black;
+}
+
+.jne {
+  color: red;
+}
+
+.jne1::before {
+  content: '盘盈：';
+  color: black;
+}
+
+.jne2::before {
+  content: '盘亏：';
+  color: black;
+}
+
+.jne3::before {
+  content: '商品总价：';
+  color: black;
+}
+
+.jne4::before {
+  content: '其他价格：';
+  color: black;
+}
+
+.jne5::before {
+  content: '合计：';
+  color: black;
+}
+
+.bne {
+  color: #1a96fe;
+}
+
+
+.bne1::before{
+  content: '系统库存：';
+  color: black;
+}
+
+.bne2::before{
+  content: '实际库存：';
+  color: black;
+}
+.bne3::before{
+  content: '出库量：';
+  color: black;
+}
+.bne4::before{
+  content: '入库量：';
+  color: black;
+}
+.bjne1::before{
+  content: '采购价格：';
+  color: black;
+}
+.bjne2::before{
+  content: '总  价：';
+  color: black;
+}
+.bjne3::before{
+  content: '盘亏金额：';
+  color: black;
+}
+.bjne4::before{
+  content: '盘盈金额：';
+  color: black;
+}
+.bjne5::before{
+  content: '其它价格：';
+  color: black;
+}

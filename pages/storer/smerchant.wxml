@@ -1,0 +1,25 @@
+<!--pages/storer/smerchant.wxml-->
+<view class='container'>
+  <block wx:for="{{merchans}}" wx:for-item="item">
+    <view class='cell' bindtap='addmerchant'>
+      <view class='lef'>
+        <view class='manc'>
+          <text>供应商：{{item.supplier_name}}</text>
+          
+        </view>
+        <view class='manc top'>
+          <text>联系人：{{item.link_man}}</text>
+          <text class='tel'>{{item.link_phone}}</text>
+        </view>
+
+      </view>
+
+      <image src='/pages/images/bianj.png' class='bianji'></image>
+    </view>
+  </block>
+
+  <view class='adda' bindtap='addmerchant'>
+    <text>新增供应商</text>
+    <image src='/pages/images/add.png' class='addpic'></image>
+  </view>
+</view>

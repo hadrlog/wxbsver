@@ -1,0 +1,210 @@
+/* pages/storer/pandian.wxss */
+
+.headline {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  align-items: center;
+  position: fixed;
+  top: 0rpx;
+  z-index: 100;
+}
+
+.xuanz {
+  background-color: whitesmoke;
+  height: 70rpx;
+  width: 180rpx;
+  margin-left: 20rpx;
+  border-top-left-radius: 18rpx;
+  border-bottom-left-radius: 18rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-right: 1rpx solid gray;
+}
+
+.danj {
+  margin-left: 10rpx;
+  font-size: 32rpx;
+}
+
+.inpview {
+  background-color: whitesmoke;
+  font-size: 32rpx;
+  height: 70rpx;
+  border-bottom-right-radius: 18rpx;
+  border-top-right-radius: 18rpx;
+  box-sizing: border-box;
+  padding: 0rpx 20rpx;
+  flex-grow: 1;
+}
+
+.adpic {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.xiajiantou {
+  margin-left: 10rpx;
+  /* position: absolute;  */
+  right: 30rpx;
+  top: 34rpx;
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 1rpx solid #7f7f7f;
+  border-right: 1rpx solid #7f7f7f;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.seltypview {
+  margin-left: 10rpx;
+  font-size: 32rpx;
+  width: 180rpx;
+  height: 70rpx;
+  position: fixed;
+  top: 80rpx;
+  left: 10rpx;
+  /* text-align: center; */
+  box-sizing: border-box;
+  padding: 0rpx 10rpx;
+  line-height: 70rpx;
+  background-color: whitesmoke;
+  border-top: 1rpx solid lightgray;
+}
+
+.centview {
+  background-color: white;
+  width: 100%;
+  height: 2000rpx;
+}
+
+.datefrom {
+  margin-left: 15rpx;
+  width: 250rpx;
+  background-color: whitesmoke;
+  height: 70rpx;
+  border-radius: 15rpx;
+  line-height: 70rpx;
+  text-align: center;
+}
+
+.qur {
+  width: 100rpx;
+  background-color: #1a96fe;
+  border-radius: 18rpx;
+  color: white;
+  text-align: center;
+  line-height: 65rpx;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+}
+
+.picker {
+  font-size: 32rpx;
+}
+
+.tex {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  font-size: 28rpx;
+}
+
+.pdjl {
+  font-size: 24rpx;
+  margin-left: 30rpx;
+}
+
+.cont {
+  margin-top: 100rpx;
+  width: 100%;
+}
+
+.cell {
+  background-color: white;
+  width: 100%;
+  margin-top: 10rpx;
+  display: block;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  font-size: 32rpx;
+  /* font-weight: 300; */
+   font-family:PingFang SC; 
+   color: #333333;
+}
+
+.addpd {
+  margin-left: 40rpx;
+  color: #1a96fe;
+  font-size: 26rpx;
+}
+
+.padc {
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.line1 {
+  width: 100%;
+  display: inline-block;
+}
+
+.lt1 {
+  float: left;
+  /* color: #696969; *//* font-weight: 300; */
+}
+
+.lt2 {
+  margin-top: 10rpx;
+  float: right;
+  font-size: 22rpx;
+}
+
+.line2 {
+  width: 100%;
+  font-size: 26rpx;
+  margin-top: -5rpx;
+}
+
+.line3 {
+  margin-top: 10rpx;
+  width: 100%;
+  font-size: 26rpx;
+}
+
+.sp1 {
+  color: #ff6347;
+}
+
+.sp1::before {
+  content: '商品种类:';
+  color: black;
+}
+
+.sp2 {
+  color: #ff6347;
+}
+
+.sp2::before {
+  margin-left: 20rpx;
+  content: '盘盈:';
+  color: black;
+}
+
+.sp3 {
+  color: #ff6347;
+}
+
+.sp3::before {
+  margin-left: 20rpx;
+  content: '盘亏:';
+  color: black;
+}

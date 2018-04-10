@@ -1,7 +1,7 @@
 <view class='containt'>
   <view class='headview'>
     <block wx:for="{{['日','周','月']}}" wx:for-index='idx' wx:for-item='item'>
-      <view class="bock {{idx==selctype?'selct':''}}" bindtap='selctType' data-info='{{idx}}'>{{item}}</view>
+      <view class="bock {{idx==selctype?'selct':''}}" bindtap='selctTypeAction' data-info='{{idx}}'>{{item}}</view>
 
     </block>
   </view>
@@ -9,7 +9,7 @@
   <view class='date-view'>
     <view class='jiantou leftj' bindtap="handleCalendar" data-handle="prev"></view>
     <view class="date-info" wx:if="{{selctype==0}}">
-      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="pickerDateValueday">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}-{{cday||"--"}}</text>
       </picker>
     </view>
@@ -18,7 +18,7 @@
     </view>
 
     <view class="date-info" wx:if="{{selctype==2}}">
-      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="pickerDateValuemonth">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
       </picker>
     </view>
@@ -27,24 +27,46 @@
   </view>
 
   <view class='paihan-view'>
-    <view class='pshot'>
-      <text class='ptop'>海飞丝</text>
-      <text class='tps'>均价￥58.00</text>
-      <text class='tps'>数量：13</text>
-      <text class='tps'>金额：75000.00</text>
+
+    <view class='pshot' wx:if="{{top}}">
+      <text class='ptop'>{{top.product_name}}</text>
+      <text class='tps'>均价￥{{top.sell_price}}</text>
+      <text class='tps'>数量：{{top.seller_count}}</text>
+      <text class='tps'>金额：{{top.total_price}}</text>
     </view>
-    <view class='pshot lef'>
-      <text class='ptop'>香飘飘奶茶</text>
-      <text class='tps'>均价￥58.00</text>
-      <text class='tps'>数量：13</text>
-      <text class='tps'>金额：75000.00</text>
+    <view class='pshot' wx:else>
+      <text class='ptop'>---</text>
+      <text class='tps'>均价:---</text>
+      <text class='tps'>数量：---</text>
+      <text class='tps'>金额：---</text>
     </view>
-    <view class='pshot rig'>
-      <text class='ptop'>盐</text>
-      <text class='tps'>均价￥58.00</text>
-      <text class='tps'>数量：13</text>
-      <text class='tps'>金额：75000.00</text>
+
+    <view class='pshot lef' wx:if="{{seconde}}">
+      <text class='ptop'>{{seconde.product_name}}</text>
+      <text class='tps'>均价￥{{seconde.sell_price}}</text>
+      <text class='tps'>数量：{{seconde.seller_count}}</text>
+      <text class='tps'>金额：{{seconde.total_price}}</text>
     </view>
+    <view class='pshot lef' wx:else>
+      <text class='ptop'>---</text>
+      <text class='tps'>均价:---</text>
+      <text class='tps'>数量：---</text>
+      <text class='tps'>金额：---</text>
+    </view>
+
+    <view class='pshot rig' wx:if="{{topthird}}">
+      <text class='ptop'>{{topthird.product_name}}</text>
+      <text class='tps'>均价￥{{topthird.sell_price}}</text>
+      <text class='tps'>数量：{{topthird.seller_count}}</text>
+      <text class='tps'>金额：{{topthird.total_price}}</text>
+    </view>
+    <view class='pshot rig' wx:else>
+      <text class='ptop'>---</text>
+      <text class='tps'>均价:---</text>
+      <text class='tps'>数量：---</text>
+      <text class='tps'>金额：---</text>
+    </view>
+
     <image src='/pages/images/paihan.png' class='paihan' mode='scaleToFill'></image>
 
   </view>
@@ -59,27 +81,36 @@
     <view class='caven'>
       <canvas canvas-id="ringCanvas" class="canvas2"></canvas>
     </view>
+  
 
     <view class='bintro'>
       <block wx:for="{{dateseris}}">
         <view class='btx'>
-          <view class='itemb bposition'></view>
-          <view class='item1'>{{item.name}}:30%</view>
+          <view class='itemb bposition' style="background-color:{{item.cols}}" ></view>
+          <view class='item1'>{{item.name}}:{{item.bili}}%</view>
         </view>
       </block>
     </view>
     <view class='whiline'></view>
 
-    <view class='third'>
+    <view class='third' wx:if="{{producty ==0}}">
       <block wx:for="{{['商品类别','销售金额','金额占比']}}">
         <view class='heatitle'>{{item}}</view>
       </block>
     </view>
+    <view class='third' wx:else>
+      <block wx:for="{{['商品名称','销售金额','金额占比']}}">
+        <view class='heatitle'>{{item}}</view>
+      </block>
+    </view>
+
+
+
     <block wx:for="{{dateseris}}" wx:for-index='idx' wx:for-item='item'>
       <view class='third'>
-        <view class='busname'>{{item.name}}</view>
-        <view class='busname'>300000</view>
-        <view class='busname'>90%</view>
+        <view class='busname btatl'>{{item.name}}</view>
+        <view class='busname'>{{item.data}}</view>
+        <view class='busname'>{{item.bili}}%</view>
       </view>
     </block>
   </view>
@@ -90,19 +121,15 @@
         <view class='heatitle changhd'>{{item}}</view>
       </block>
     </view>
-    <block wx:for="{{[1,2,3,4,5]}}">
-    <view class='cbard'>
-      <view class='cb1'>香飘飘</view>
-      <view class='cb1'>￥100</view>
-      <view class='cb1'>123</view>
-      <view class='cb1'>￥1233444</view>
-    </view>
+    <block wx:for="{{chanxArr}}" wx:for-index='idx' wx:for-item='item'>
+      <view class='cbard'>
+        <view class='cb1 btatl'>{{item.name}}</view>
+        <view class='cb1'>￥{{item.price}}</view>
+        <view class='cb1'>{{item.scont}}</view>
+        <view class='cb1'>￥{{item.salet}}</view>
+      </view>
     </block>
 
   </view>
-
-
-
-
 
 </view>

@@ -1,11 +1,12 @@
 var wxCharts = require('/../../utils/wxcharts.js');
+var api = require('../../utils/api.js');
 var app = getApp();
 var columnChart = null;
 var chartData = {
   main: {
     title: '总成交量',
-    data: [15, 20, 100, 37, 19],
-    categories: ['现金', '会员卡', '微信', '支付宝', '银行卡']
+    data: [15, 20, 100, 37, 19,12],
+    categories: ['现金', '会员卡', '微信', '支付宝', '银行卡','代金券']
   }
 };
 Page({
@@ -13,32 +14,113 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
+  data: {  
     selctype: 0,
     cyear: 2017,
     cmonth: 12,
     cday: 1,
-    col: 'blue',
+    col: '#89D951',
     week: '',
     pretap:0,  //点击向前-1 ，向后+1
+    currentcategaty: ['现金', '会员卡', '微信', '支付宝', '银行卡','代金券'],
+    data:[0,0,0,0,0,0],
+    vipcont:0,
+    vipamount:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    var date = new Date();
+    //年  
+    var Y = date.getFullYear();
+    //月  
+    var M = (date.getMonth() + 1 < 10 ?  (date.getMonth() + 1) : date.getMonth() + 1);
+    //日  
+    var D = date.getDate() < 10 ?  date.getDate() : date.getDate();  
+    this.setData({
+      cyear:Y,
+      cmonth: M,
+      cday:D,
+    })
+    this.checkpayConsistOf();
+  },
+  //查询收款构成统计
+  checkpayConsistOf:function(){
+    const shopnum = app.globalData.shoopnum;
+    const chetyp = this.data.selctype;
+    const week = this.data.week;
+    var str_before = '';
+    var str_after = '';
 
+    var currentypt = '';
+    var rmouth ='';
+
+
+    var day = '';
+    switch (chetyp){
+      case 0:
+        currentypt = "01";
+        const cday =this.data.cday;
+        var cd = parseInt(cday)<10?('0'+cday):cday;
+        const cmotn = this.data.cmonth;
+        var cm = parseInt(cmotn)<10?('0'+cmotn):cmotn;
+         day = this.data.cyear + '-' + cm + '-' + cd;
+
+      break;
+      case 1:
+        currentypt = "02";
+        str_before = week.split('~')[0];
+        str_after = week.split("~")[1];
+
+      break;
+      case 2:
+        currentypt = "03";
+        const mnth = this.data.cmonth;
+        var cmt = parseInt(mnth) < 10 ? ('0' + mnth) : mnth;
+        rmouth = this.data.cyear + '-' + mnth;
+      break;
+    }
+    api.Cpic_fetchPost(api.PAYCONSIST, { "shop_no": shopnum, "type": currentypt, "day_time": day, "week_start_date": str_before, "week_end_date": str_after, "month_date": rmouth}, (err, res) => {
+      console.log("err:" + err + "DIC:" + res.ReturnMsg + 'GROUP：' + res.data);
+      const cash_amt = res.data.cash_amt; 
+      const card_amt = res.data.card_amt;
+      const wechat_amt = res.data.wechat_amt;
+      const alipay_amt = res.data.alipay_amt;
+      const bank_card_amt = res.data.bank_card_amt;
+      const coupon_amt = res.data.coupon_amt;
+      const charge_cont = res.data.charge_count;  //充值次数
+      const charge_amont = res.data.charge_amount;  //充值金额
+
+      var trcash_amt = (parseInt(cash_amt) * 0.01).toFixed(2);
+      var trcard_amt = (parseInt(card_amt) * 0.01).toFixed(2);
+      var trwechat_amt = (parseInt(wechat_amt) * 0.01).toFixed(2);
+      var tralipay_amt = (parseInt(alipay_amt) * 0.01).toFixed(2);
+      var trbank_card_amt = (parseInt(bank_card_amt) * 0.01).toFixed(2);
+      var trcoupon_amt = (parseInt(coupon_amt) * 0.01).toFixed(2);
+      var vipamt = (parseInt(charge_amont) * 0.01).toFixed(2);
+    
+      this.setData({
+        data: [trcash_amt, trcard_amt, trwechat_amt, tralipay_amt, trbank_card_amt, trcoupon_amt],
+        charge_amont:charge_cont,
+        vipamount: vipamt
+
+      })
+      this.updateData();
+    })
   },
   createSimulationData: function () {
-    var categories = ['现金', '会员卡', '微信', '支付宝', '银行卡'];
-    var data = [];
-    for (var i = 0; i < 5; i++) {
-      
-      data.push(Math.random() * (20 - 10) + 10);
-    }
+    var categories = ['现金', '会员卡', '微信', '支付宝', '银行卡','代金券'];
+    // var data = [];
+    // for (var i = 0; i < 6; i++) {
+        
+    //   data.push(Math.random() * (20 - 10) + 10);
+    // }
     return {
       categories: categories,
-      data: data
+      data: this.data.data,  
     }
   },
   updateData: function () {
@@ -46,9 +128,9 @@ Page({
     var series = [{
       name: '成交量1',
       data: simulationData.data,
-      format: function (val, name) {
-        return val.toFixed(2) + '万';
-      }
+      // format: function (val, name) {
+      //   return val.toFixed(2);
+      // }
     }];
     columnChart.updateData({
       categories: simulationData.categories,
@@ -62,10 +144,25 @@ Page({
     var newMonth = date.getMonth() + 1;
     var todayIndex = date.getDate();
     this.setData({
-      cur_year: newYear,
-      cur_month: newMonth,
-      cur_day: todayIndex
+      cyear: newYear,
+      cmonth: newMonth,
+      cday: todayIndex,
+      selctype:0,
     })
+    this.checkpayConsistOf();
+  },
+  datePickerChangeEvent2:function(e){
+
+    const date = new Date(Date.parse(e.detail.value));
+    var newYear = date.getFullYear();
+    var newMonth = date.getMonth() + 1;
+    var todayIndex = date.getDate();
+    this.setData({
+      cyear: newYear,
+      cmonth: newMonth,
+      selctype:2,
+    })
+    this.checkpayConsistOf();
   },
   onReady: function (e) {
     var windowWidth = 320;
@@ -83,17 +180,18 @@ Page({
       categories: chartData.main.categories,
       series: [{
         name: '1成交',
-        data: chartData.main.data,
+        // data: chartData.main.data,
+        data:this.data.data,
         format: function (val, name) {
-          return val.toFixed(2) + '万';
+          return val.toFixed(2);
         },
-        color: '#1a96fe',
+        // color: '#1a96fe',
       }],
       yAxis: {
-        format: function (val) {
-          return val + '万';
-        },
-        title: '单位:万元',
+        // format: function (val) {
+        //   return val + '万';
+        // },
+        title: '单位:(元)',
         min: 0,
         disabled: false,
         gridColor: 'lightgray',
@@ -107,7 +205,7 @@ Page({
     });
   },
   handleCalendar(e) {
-    this.updateData();
+   
     const witchtype = this.data.selctype;
     const handle = e.currentTarget.dataset.handle;
     var cur_year = this.data.cyear;
@@ -161,12 +259,14 @@ Page({
         } else {
           pretap = pretap+1;
         }
-        var Nowdate = new Date();
-        var WeekFirstDay = new Date(Nowdate - (Nowdate.getDay() - 1 - 7 * pretap) * 86400000);
-        var WeekLastDay = new Date((WeekFirstDay / 1000 + 6 * 86400) * 1000); const firstday = this.formatDate(WeekFirstDay);
-        const lastday = this.formatDate(WeekLastDay);
+        // var Nowdate = new Date();
+        // var WeekFirstDay = new Date(Nowdate - (Nowdate.getDay() +6 - 7 * pretap) * 86400000);
+        // var WeekLastDay = new Date((WeekFirstDay / 1000 + 6 * 86400) * 1000); const firstday = this.formatDate(WeekFirstDay);
+        // const lastday = this.formatDate(WeekLastDay);
+        var dat = Date.now() + pretap *7* 86400000;
+        var calewk = this.weekCaculate(dat);
         this.setData({
-          week: firstday + '~' + lastday,
+          week: calewk,
           pretap: pretap,
         })
 
@@ -199,6 +299,7 @@ Page({
         }
         break;
     }
+    this.checkpayConsistOf();
   },
 
   //格式化日期：yyyy-MM-dd
@@ -207,21 +308,22 @@ Page({
     var mymonth = date.getMonth() + 1;
     var myweekday = date.getDate();
 
-    if(mymonth < 10){
+    if (mymonth < 10) {
       mymonth = "0" + mymonth;
     }
-        if(myweekday < 10){
+    if (myweekday < 10) {
       myweekday = "0" + myweekday;
     }
-        return (myyear+"/" + mymonth + "/" + myweekday);
+        return (myyear+"-" + mymonth + "-" + myweekday);
   },
 
   showWeekLastDay()     
 {     
+
     var Nowdate= new Date();     
     var WeekFirstDay= new Date(Nowdate - (Nowdate.getDay() - 1) * 86400000);     
     var WeekLastDay= new Date((WeekFirstDay / 1000 + 6 * 86400) * 1000);     
-   var  M=Number(WeekLastDay.getMonth()) + 1     
+   var  M=Number(WeekLastDay.getMonth()) + 1;
    return this.formatDate(WeekLastDay);     
   },
    showWeekFirstDay()     
@@ -229,7 +331,8 @@ Page({
     var Nowdate= new Date();     
     var WeekFirstDay= new Date(Nowdate - (Nowdate.getDay() - 1) * 86400000);     
    var  M=Number(WeekFirstDay.getMonth()) + 1     
-   return this.formatDate(WeekFirstDay);     
+   return this.formatDate(WeekFirstDay);  
+      
   },
 //获取当月多少天
   getThisMonthDays(year, month) {
@@ -240,19 +343,34 @@ Page({
     return new Date(Date.UTC(year, month - 1, day)).getDay();
   },
   
+  weekCaculate:function(e){
+    // const dateOfToday = Date.now() - 1 * 86400000;
+    const dateOfToday = e;
+    const dayOfToday = (new Date(dateOfToday).getDay() + 7 - 1) % 7;
+    const daysOfThisWeek = Array.from(new Array(7))
+      .map((_, i) => {
+        const date = new Date(dateOfToday + (i - dayOfToday) * 1000 * 60 * 60 * 24)
+        return date.getFullYear() +
+          '-' +
+          String(date.getMonth() + 1).padStart(2, '0') +
+          '-' +
+          String(date.getDate()).padStart(2, '0')
+      })
+      return (daysOfThisWeek[0]+'~'+daysOfThisWeek[6]);
+  },
 
   selctType: function (e) {
     var index = e.currentTarget.dataset.info;
     this.setData({
       selctype: index
     })
-    const lastday = this.showWeekLastDay();
-    const firstday = this.showWeekFirstDay();
-    console.log(firstday + '~' + lastday);
+    
+    var calewk = this.weekCaculate(Date.now());
+
     this.setData({
-      week: firstday + '~' + lastday,
+      week: calewk,
     })
-    this.updateData();
+    this.checkpayConsistOf();
   },
   
 

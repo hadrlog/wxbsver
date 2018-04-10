@@ -1,0 +1,191 @@
+/* pages/storer/bouter.wxss */
+
+.headwr{
+  width: 100%;
+  height: 88rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  border-bottom: 1rpx solid lightgrey;
+  z-index: 5;
+}
+.scanpng{
+  width: 68rpx;
+  height: 68rpx;
+  margin-left: 15rpx;
+}
+
+.inputView{
+  margin-left: 20rpx;
+  background-color: whitesmoke;
+  height: 68rpx;
+  font-size: 34rpx;
+  flex-grow: 1;
+  border-radius: 10rpx;
+}
+.ipang{
+  margin-left: 20rpx;
+  margin-right: 18rpx;
+}
+.ylkb{
+  width: 100%;
+  height: 88rpx;
+}
+.bcell{
+  background-color: white;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx;
+  border-bottom: 1rpx solid lightgray;
+  font-size: 30rpx;
+  width: 100%;
+}
+.ltg{
+  /* float: left; */
+}
+.djd::before{
+  content: "单价:";
+  color: black;
+  font-size: 25rpx;
+}
+.kclab{
+  width: 100%;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.vaturestore{
+  flex-basis: auto;
+  background-color: whitesmoke;
+}
+.xtkc{
+  float: right;
+  color: gray;
+  font-size: 28rpx;
+}
+.sjkc{
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sjkc image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 10rpx;
+}
+.sjkc text::before{
+  content: '*';
+  color: red;
+  margin-right: 5rpx;
+}
+.sjkc input{
+  margin-left: 10rpx;
+  color: red;
+}
+.bjtext{
+  width: 30rpx;
+  height: 30rpx;
+}
+.sname{
+  display: inline-block;
+  width: 100%;
+}
+.sname text{
+  float: left;
+}
+.deletview{
+  float: right;
+  margin-right: 20rpx;
+  box-sizing: border-box;
+  padding: 5rpx 10rpx;
+}
+
+.bsbnm{
+ margin-top: 10rpx;
+ display: inline-block;
+ width: 100%;
+}
+.bsbnm text{
+  float: left;
+}
+.jin{
+ margin-top: 10rpx;
+  float: left;
+  color: red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ltrt{
+  float: right;
+  display: flex;
+  flex-direction: column;  
+  margin-left: 16rpx;
+  align-items: flex-end;
+}
+.bj{
+  margin-right: 28rpx;
+  box-sizing: border-box;
+  padding: 5rpx 15rpx;
+}
+.jj{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+  margin-right: 15rpx;
+}
+.jt{
+  line-height: 40rpx;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid lightgrey;
+}
+.nober{
+  border-right: 0rpx solid white;
+  border-left: 0rpx solid white;
+  padding: 10rpx 0rpx;
+}
+.wthd{
+  width: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.kb{
+  height: 90rpx;
+}
+.fd{
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  background-color: white;
+  width: 100%;
+  height: 90rpx;
+  box-sizing: border-box;
+  display: inline-block;
+  border-top: 1rpx solid whitesmoke;
+  z-index: 5;
+}
+
+.fd1{
+  float: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  color: #DD2727;
+}
+.fd2{
+  float: right;
+  line-height: 90rpx;
+  box-sizing: border-box;
+  padding: 0rpx 80rpx;
+   background-color: #DD2727;
+  color:  white;
+  font-size: 36rpx;
+}

@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/content/paydetial",
     "pages/content/datesale",
@@ -7,18 +7,35 @@
     "pages/content/kucun",
     "pages/content/calender",
     "pages/content/paihan",
-    "pages/content/login",
     "pages/content/xiaoshou",
     "pages/salepart/mainpage",
     "pages/caigou/mainindex",
-    "pages/storer/main",
+    "pages/content/tindex",
     "pages/salepart/goodsinfo",
-    "pages/salepart/daike"
+    "pages/salepart/daike",
+    "pages/content/fogetpwd",
+    "pages/storer/goodsmane",
+    "pages/storer/goods",
+    "pages/storer/goodsub",
+    "pages/storer/smerchant",
+    "pages/storer/addmerchant",
+    "pages/storer/goodcategary",
+    "pages/storer/goodcategaryadd",
+    "pages/storer/pandian",
+    "pages/storer/outer",
+
+    "pages/shopStore/main",
+    "pages/shopStore/bouter",
+    "pages/shopStore/interstore",
+    "pages/shopStore/checkStore",
+    "pages/shopStore/auditList",
+    "pages/shopStore/listDetail",
+    "pages/shopStore/goodsEdit"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1a96fe",
-    "navigationBarTitleText": "客满座",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "易客来Bate",
+    "navigationBarTextStyle": "white"
   }
 }

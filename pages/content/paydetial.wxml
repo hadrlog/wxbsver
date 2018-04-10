@@ -12,7 +12,7 @@
     </view>
 
     <view class="date-info" wx:if="{{selctype==2}}">
-      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+      <picker mode="date" fields="month" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent2">
         <text>{{cyear || "--"}}-{{cmonth || "--"}}</text>
       </picker>
     </view>
@@ -29,10 +29,10 @@
   <view class='batview'>
     <view class='total-view'>总收款</view>
     <view class='shoucontent'>
-      <block wx:for="{{[110000,2,322,12,3]}}">
+      <block wx:for="{{currentcategaty}}" wx:for-item='item' wx:for-index='idx'>
         <view class='zfb'>
           <view class='sb-view s1' style="background-color:{{col}}"></view>
-          <text>微信 {{item}}</text>
+          <text>{{item}}:{{data[idx]}}</text>
         </view>
       </block>
     </view>
@@ -43,9 +43,9 @@
     <view class='total-view '>会员充值统计</view>
     <view class='zfb'>
       <view class='sb-view s5'></view>
-      <text>充值金额 ￥200</text>
+      <text>充值金额:{{vipamount}}</text>
     </view>
-    <view class='ztx'>1</view>
+    <view class='ztx'>{{charge_amont}}</view>
   </view>
 
 </view>
